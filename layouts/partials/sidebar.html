@@ -1,0 +1,31 @@
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <nav class="sidebar-nav">
+      <div>
+        <a href="{{ .Site.BaseURL }}">All</a>
+      </div>
+
+      Series
+      <ul>
+        {{ range .Site.Taxonomies.series }}
+          <li><a href="{{ .Page.Permalink }}">{{ .Page.Title | title }}</a></li>
+        {{ end }}
+      </ul>
+
+      Tags
+      <ul>
+        {{ range .Site.Taxonomies.tags }}
+          <li><a href="{{ .Page.Permalink }}">{{ .Page.Title | title }}</a></li>
+        {{ end }}
+      </ul>
+
+      <div class="social-personal">
+        <a href="https://github.com/plippe"><i class="fab fa-github-square"></i></a>
+        <a href="https://www.linkedin.com/in/pvinchon/"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:p.vinchon@gmail.com"><i class="fas fa-envelope-square"></i></a>
+      </div>
+
+    </nav>
+    </p>
+  </div>
+</aside>

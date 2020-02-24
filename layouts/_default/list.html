@@ -1,0 +1,36 @@
+{{ define "main" -}}
+{{ if .Data.Term }}
+
+  <h1>{{ .Data.Plural | title }} - {{ .Data.Term | title }} </h1>
+
+  <div class="posts">
+    {{ range .Data.Pages -}}
+      <article class="post">
+        <h2 class="post-title">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}" class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+        {{ .Summary }}
+        {{ if .Truncated }}
+        <div class="read-more-link">
+          <a href="{{ .RelPermalink }}">Read More…</a>
+        </div>
+        {{ end }}
+      </article>
+    {{- end }}
+  </div>
+
+{{ else }}
+
+  <h1>{{ .Data.Plural | title }}</h1>
+
+  <ul class="posts">
+  {{ range .Data.Pages -}}
+    <li>
+      <span><a href="{{ .Permalink }}">{{ .Title }}</a> ({{ len .Data.Pages }})</span>
+    </li>
+  {{- end }}
+  </ul>
+
+{{- end }}
+{{- end }}
