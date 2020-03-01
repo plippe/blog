@@ -3,17 +3,17 @@ a:hover, a:focus {
     border-bottom: solid 1px currentColor;
 }
 
+.sidebar-nav ul {
+    list-style: none;
+    padding-inline-start: 0px;
+}
+
 .sidebar-nav div {
     margin-bottom: 1em;
 }
 
-.sidebar-nav a {
-    color: #fff;
-}
-
-.sidebar-nav ul {
-    list-style: none;
-    padding-inline-start: 0px;
+.sidebar-nav .sidebar-nav-links {
+    font-size: 0.8em;
 }
 
 .post-metadata {
@@ -29,8 +29,8 @@ a:hover, a:focus {
     font-weight:bold;
 }
 
-.post-metadata li a:not(:last-child)::after {
-    content: ", ";
+.post-metadata li a {
+    font-size: 0.9em;
 }
 
 .social-personal {
@@ -41,12 +41,4 @@ a:hover, a:focus {
 .social-sharing {
     text-align: right;
     font-size: 1.3em;
-}
-
-.social-sharing a {
-    text-decoration: none;
-}
-
-.social-sharing a:hover, .social-sharing a:focus {
-    border-bottom: none;
 }

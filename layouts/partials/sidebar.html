@@ -6,18 +6,18 @@
       </div>
 
       Series
-      <ul>
+      <ul class="sidebar-nav-links">
         {{ range .Site.Taxonomies.series }}
           <li><a href="{{ .Page.Permalink }}">{{ .Page.Title | title }}</a></li>
         {{ end }}
       </ul>
 
       Tags
-      <ul>
+      <div class="sidebar-nav-links">
         {{ range .Site.Taxonomies.tags }}
-          <li><a href="{{ .Page.Permalink }}">{{ .Page.Title | title }}</a></li>
+          <a href="{{ .Page.Permalink }}">{{ .Page.Title | title }}</a>
         {{ end }}
-      </ul>
+      </div>
 
       <div class="social-personal">
         <a href="https://github.com/plippe"><i class="fab fa-github-square"></i></a>
