@@ -4,7 +4,7 @@ image: "/images/2020/play.jpeg"
 date: 2020-03-01
 
 series: "playing with scala"
-tags: ["play framework"]
+tags: ["scala", "play framework"]
 ---
 
 ![]({{< param "image" >}})
