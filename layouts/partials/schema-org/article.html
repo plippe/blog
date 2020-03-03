@@ -1,0 +1,23 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "url": {{ .Permalink }}
+  },
+
+  "headline": {{ .Title | truncate 110 }},
+  "description": {{ .Summary }},
+  "keywords": {{ .Params.Tags }},
+  "image": {{ .Params.Image }},
+
+  "author": {
+    "@type": "Person",
+    "name": "Philippe Vinchon"
+  },
+
+  "datePublished": {{ .Date.Format "2006-01-02" }}
+}
+</script>

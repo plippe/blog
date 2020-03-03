@@ -1,30 +1,15 @@
 {{ define "main" -}}
-<div class="post">
-  <h1>{{ .Title }}</h1>
-  <ul class="post-metadata">
-    <li><span>Posted:</span> <time datetime={{ .Date.Format "2006-01-02T15:04:05Z0700" }}>{{ .Date.Format "Jan 2, 2006" }}</time></li>
-    {{ if .Params.Series }}<li><span>Series:</span> <a href="/series/{{ .Params.Series | urlize}}">{{ .Params.Series }}</a></li>{{- end }}
-    {{ if .Params.Tags }}<li><span>Tags:</span> {{ range .Params.tags }} <a href="/tags/{{ . | urlize }}.html">{{ . }}</a> {{- end }}</li>{{- end }}
-  </ul>
+  <div class="post">
+    <h1>{{ .Title }}</h1>
+    <ul class="post-metadata">
+      <li><span>Posted:</span> <time datetime={{ .Date.Format "2006-01-02T15:04:05Z0700" }}>{{ .Date.Format "Jan 2, 2006" }}</time></li>
+      {{ if .Params.Series }}<li><span>Series:</span> <a href="/series/{{ .Params.Series | urlize}}">{{ .Params.Series }}</a></li>{{- end }}
+      {{ if .Params.Tags }}<li><span>Tags:</span> {{ range .Params.tags }} <a href="/tags/{{ . | urlize }}.html">{{ . }}</a> {{- end }}</li>{{- end }}
+    </ul>
 
-  {{ .Content }}
-</div>
+    {{ .Content }}
+  </div>
 
-<div class="social-sharing">
-  <a href="https://www.facebook.com/sharer/sharer.php?t={{ .Title }}&u={{ .Permalink | absURL }}" target="_blank">
-    <i class="fab fa-facebook-square"></i>
-  </a>
-
-  <a href="http://twitter.com/share?text={{ .Title }}&url={{ .Permalink | absURL }}" target="_blank">
-    <i class="fab fa-twitter-square"></i>
-  </a>
-
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank">
-    <i class="fab fa-linkedin"></i>
-  </a>
-
-  <a href="https://www.reddit.com/submit?title={{ .Title }}&url={{ .Permalink | absURL }}" target="_blank">
-    <i class="fab fa-reddit-square"></i>
-  </a>
-</div>
+  {{ partial "posts/social-sharing.html" . }}
+  {{ partial "schema-org/article.html" . }}
 {{- end }}
