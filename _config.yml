@@ -1,0 +1,6 @@
+baseurl: "/blog"
+url: ""
+
+# Build settings
+plugins:
+  - jekyll-feed
