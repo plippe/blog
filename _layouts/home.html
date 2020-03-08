@@ -17,3 +17,26 @@ layout: default
     </div>
   </div>
 {% endfor %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "url": "{{ page.url | absolute_url }}"
+  },
+
+  "itemListElement": [
+    {% for post in site.posts %}
+    {
+      "@type": "ListItem",
+      "position": "{{ forloop.index }}",
+      "url": "{{ post.url | absolute_url }}"
+    },
+    {% endfor %}
+    null
+  ]
+}
+</script>
