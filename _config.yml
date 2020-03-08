@@ -4,3 +4,4 @@ url: ""
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
