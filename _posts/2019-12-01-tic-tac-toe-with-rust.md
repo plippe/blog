@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tic Tac Toe with Rust
-image: /assets/images/playground.jpeg
+image: /assets/images/posts/playground.jpeg
 
 tags: ["rust", "hyper", "swagger"]
 ---

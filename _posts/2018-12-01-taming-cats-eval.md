@@ -36,7 +36,7 @@ Function invocations create new stack frame. The memory holds the function’s p
 
 The foo function will create n stack frames before releasing them all. If n is big enough, the application will run out of stack memory, and throw a stack overflow error.
 
-![Stack overflow]({{ "/assets/images/stack-overflow.png" | absolute_url }})
+![Stack overflow]({{ "/assets/images/posts/stack-overflow.png" | absolute_url }})
 
 
 To overcome this, some languages, like Scala, offers tail recursion. It allows recursive calls to reuse the parent stack frame instead of creating a child one. This removes the risk of stack overflows. For the compiler to optimise the function, it must end with the recursive call.

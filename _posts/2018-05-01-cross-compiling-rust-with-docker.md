@@ -9,7 +9,7 @@ I haven’t played with embedded systems since college. My group, and I built a 
 
 I am giving embedded systems another go with a side project of mine. The device has a single purpose. It captures network packets, and forwards them to a server. It is easily achieved with [LIBpcap](https://github.com/the-tcpdump-group/libpcap), but the device makes it interesting.
 
-![GL-AR150]({{ "/assets/images/gl-ar150.jpeg" | absolute_url }})
+![GL-AR150]({{ "/assets/images/posts/gl-ar150.jpeg" | absolute_url }})
 
 The [GL-AR150](https://www.gl-inet.com/products/gl-ar150/) sells as a mini smart router. The limited storage makes it hard to install language interpreters, or virtual machines. This pushed me to look into standalone executables, and how to compile them for other devices.
 

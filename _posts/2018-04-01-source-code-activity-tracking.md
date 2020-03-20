@@ -21,7 +21,7 @@ Following the current trend of best practices, your repository should be popular
 
 All these events are related to permissions. They are triggered when new, or existing users, gain access to repositories. Read rights shouldn’t be too much of an issue as all your secrets shouldn’t be hard coded. On the other hand, write, and admin permissions could be very damaging.
 
-![Protect branch]({{ "/assets/images/protect-branch.png" | absolute_url }})
+![Protect branch]({{ "/assets/images/posts/protect-branch.png" | absolute_url }})
 
 This monitoring isn’t for a lack of trust in developers, but to catch compromised accounts, or computers.
 

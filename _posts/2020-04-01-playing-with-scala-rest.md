@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Playing with Scala - ReST
-image: /assets/images/play.jpeg
+image: /assets/images/posts/play.jpeg
 
 tags: ["scala", "play framework"]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Amazon S3 Versioning
-image: /assets/images/printing-press.jpeg
+image: /assets/images/posts/printing-press.jpeg
 
 tags: ["aws web services", "amazon s3", "aws lambda"]
 ---
@@ -15,15 +15,15 @@ Versioning is a great way to mitigate this.
 ## Amazon S3 versioning
 Amazon S3 has a built-in versioning solution. It can be enabled in the bucket’s properties tab.
 
-![Amazon S3 versioning]({{ "/assets/images/amazon/amazon-s3-versioning.png" | absolute_url}})
+![Amazon S3 versioning]({{ "/assets/images/posts/amazon/amazon-s3-versioning.png" | absolute_url}})
 
 Once enabled, objects are never overwritten. Uploading multiple files to the same Bucket and Key will create new versions. Amazon S3 will return the latest one if none is explicitly requested.
 
-![Amazon S3 versions]({{ "/assets/images/amazon/amazon-s3-versions.png" | absolute_url}})
+![Amazon S3 versions]({{ "/assets/images/posts/amazon/amazon-s3-versions.png" | absolute_url}})
 
 Furthermore, objects are never deleted. When an attempt is made, a new version is added to the Bucket and Key pair. That version is flagged to be unavailable.
 
-![amazon-s3-version-deleted]({{ "/assets/images/amazon/amazon-s3-version-deleted.png" | absolute_url}})
+![amazon-s3-version-deleted]({{ "/assets/images/posts/amazon/amazon-s3-version-deleted.png" | absolute_url}})
 
 While objects can’t be deleted, versions can. This offers a revert mechanism.
 
@@ -32,7 +32,7 @@ If an outage is related to an Amazon S3 file it can be quicker to revert to a pr
 
 Selecting the bad version and deleting it can be done in 5 clicks on the AWS Console.
 
-![amazon-s3-delete]({{ "/assets/images/amazon/amazon-s3-delete.png" | absolute_url}})
+![amazon-s3-delete]({{ "/assets/images/posts/amazon/amazon-s3-delete.png" | absolute_url}})
 
 Once the bad version is removed, consumers should start retrieving the good one instead.
 
