@@ -2,31 +2,22 @@
 layout: default
 ---
 
-<img src="{{ page.image | absolute_url }}" />
-<h1>{{ page.title }}</h1>
-<i>posted on {{ page.date | date: "%-d %b %Y" }}</i>
+<article class="post-sing">
+  <img src="{{ page.image | absolute_url }}" />
+  <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-meta">{{ page.date | date: "%-d %b %Y" }}</div>
+  </header>
 
-{{ content }}
+  <div class="post-content">
+    {{ content }}
+  </div>
 
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
-
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "url": "{{ page.url | absolute_url }}"
-  },
-
-  "headline": "{{ page.title | truncate 110 }}",
-  "description": "{% if post.excerpt %}{{ post.excerpt }}{% else %}{{ post.content }}{% endif %}",
-  "image": "{{ page.image }}",
-
-  "author": {
-    "@type": "Person",
-    "name": "Philippe Vinchon"
-  },
-
-  "datePublished": "{{ page.date | date: "%-d %b %Y" }}"
-}
-</script>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      {% for tag in page.tags | sort %}
+        <li><a href="{{ "/tags" | absolute_url }}#{{ tag | url_encode }}">{{tag}}</a></li>
+      {% endfor %}
+    </ul>
+  </footer>
+</article>

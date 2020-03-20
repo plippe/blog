@@ -2,23 +2,27 @@
 <html lang="{{site.language}}">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="{{ "/assets/css/normalize.css" | absolute_url }}" />
+        <link rel="stylesheet" href="{{ "/assets/css/paper.css" | absolute_url }}" />
         <link rel="stylesheet" href="{{ "/assets/css/rougify.css" | absolute_url }}" />
-
-        <style>
-            body {
-                padding: 0 20px;
-            }
-
-            img {
-                display: block;
-                margin: 0 auto;
-                max-width: 100%;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ "/assets/css/site.css" | absolute_url }}" />
     </head>
     <body>
-        {{content}}
+        <header class="header">
+            <nav class="nav">
+                <p class="">&nbsp;</p>
+                <ul class="menu">
+                    <li><a href="{{ "/" | absolute_url }}">Home</a></li>
+                    <li><a href="{{ "/tags" | absolute_url }}">Tags</a></li>
+                    <li><a href="https://github.com/plippe">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/pvinchon">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            {{content}}
+        </main>
     </body>
 </html>

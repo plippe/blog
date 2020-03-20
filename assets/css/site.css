@@ -1,0 +1,52 @@
+:root {
+  --nav-width: 90%;
+  --main-width: 90%;
+
+  --hljs-bg: #f8f8f8;
+}
+
+.header {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.entry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: var(--header-height);
+}
+
+.entry .entry-image {
+  max-height: 10px;
+  overflow:hidden;
+}
+
+.entry .entry-header {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.entry .entry-header h2 {
+  font-size: 24px;
+}
+
+.entry .entry-content {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  -webkit-line-clamp: 3;
+}
+
+.entry .entry-metadata {
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.post-content pre code {
+  color: inherit;
+}
