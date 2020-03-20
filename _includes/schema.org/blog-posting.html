@@ -1,0 +1,31 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "url": "{{ page.url | absolute_url }}"
+  },
+
+  "headline": "{{ page.title | strip_html | escape | truncate 110 }}",
+  "name": "{{ page.title | strip_html | escape | truncate 110 }}",
+  "abstract": "{% if post.excerpt %}{{ post.excerpt | strip_html | strip_newlines | escape }}{% else %}{{ post.content | strip_html | strip_newlines | escape }}{% endif %}",
+  "description": "{% if post.excerpt %}{{ post.excerpt | strip_html | strip_newlines | escape }}{% else %}{{ post.content | strip_html | strip_newlines | escape }}{% endif %}",
+  "articleBody": "{{ page.content | strip_html | strip_newlines | escape }}",
+  "text": "{{ page.content | strip_html | strip_newlines | escape }}",
+  "wordCount": {{ page.content | number_of_words }},
+  "keywords": "{{ page.tags | join: ", " }}",
+
+  "image": "{{ page.image | absolute_url }}",
+  "thumbnailUrl": "{{ page.image | absolute_url }}",
+
+  "author": {
+    "@type": "Person",
+    "name": "Philippe Vinchon"
+  },
+
+  "datePublished": "{{ page.date | date: "%-d %b %Y" }}",
+  "dateModified": "{{ page.date | date: "%-d %b %Y" }}"
+}
+</script>
