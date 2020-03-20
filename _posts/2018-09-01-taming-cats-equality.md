@@ -2,7 +2,6 @@
 layout: post
 title: Taming cats - Equality
 
-series: "taming cats"
 tags: ["scala", "cats"]
 ---
 

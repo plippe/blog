@@ -2,7 +2,6 @@
 layout: post
 title: AWS continuous integration
 
-series: "aws ci cd"
 tags: ["amazon web services", "aws codedeploy", "continuous integration"]
 ---
 

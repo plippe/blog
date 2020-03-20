@@ -2,7 +2,6 @@
 layout: post
 title: AWS continuous deployment
 
-series: "aws ci cd"
 tags: ["amazon web services", "aws codepipeline", "continuous deployment"]
 ---
 

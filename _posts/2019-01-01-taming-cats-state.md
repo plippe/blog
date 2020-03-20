@@ -2,7 +2,6 @@
 layout: post
 title: Taming cats - State
 
-series: "taming cats"
 tags: ["scala", "cats"]
 ---
 
