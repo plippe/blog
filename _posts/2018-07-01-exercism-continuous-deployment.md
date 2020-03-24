@@ -5,7 +5,7 @@ title: Exercism continuous deployment
 tags: ["exercism", "continuous deployment"]
 ---
 
-[Exercism](https://exercism.io/) is a nice little service [I talked about last month](({{ post_url 2018-06-01-exercism-driven-learning }})). It is great to learn new languages, or improve your skills, but it isn’t perfect. I wished it had submission validations. So lets build one.
+[Exercism](https://exercism.io/) is a nice little service [I talked about last month](({% post_url 2018-06-01-exercism-driven-learning %})). It is great to learn new languages, or improve your skills, but it isn’t perfect. I wished it had submission validations. So lets build one.
 
 I imagine a continuous deployment style workflow. A user would fetch a problem, write the solution, and commit it to GitHub. This would trigger tests, and allow to merge pull requests if the tests pass. Once merged into master, the pipeline would submit the solution. Users would then be allowing to fetch the next problem. The process would repeat until all exercises are completed.
 

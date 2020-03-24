@@ -6,7 +6,7 @@ image: /assets/images/posts/play.jpeg
 tags: ["scala", "play framework"]
 ---
 
-Play Framework is a simple way to get started with Scala. [My first post]({{ post_url 2020-03-01-playing-with-scala-hello-world }}) was a traditional "Hello, World!". This one will show how to build a ReSTful API for a pet store. 
+Play Framework is a simple way to get started with Scala. [My first post]({% post_url 2020-03-01-playing-with-scala-hello-world %}) was a traditional "Hello, World!". This one will show how to build a ReSTful API for a pet store. 
 
 As this is the second post in the series, don't expect any advanced features. Shortcuts are taken to avoid `BodyParsers`, `Writeables`, and databases interactions. Those will be covered in later posts.
 

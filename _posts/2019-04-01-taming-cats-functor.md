@@ -12,7 +12,7 @@ To use Cats’ Functors, it helps to understand typeclasses.
 
 In short, a typeclass is an interface. An instance is created by extending a class, or with an anonymous class created via a function. The latter allows Scala built in types, or other 3rd party types, to be compatible with the interface.
 
-If you are looking to learn more about typeclasses, I wrote two posts about them. The first [compares suppertypes with typeclasses]({{ post_url 2019-02-01-scala-generics-and-typeclasses }}), while the second shows [how to create your own typeclass to write CSVs]({{ post_url 2019-03-01-scala-typeclasses }}). They shouldn’t take you more than 10 minutes to understand.
+If you are looking to learn more about typeclasses, I wrote two posts about them. The first [compares suppertypes with typeclasses]({% post_url 2019-02-01-scala-generics-and-typeclasses %}), while the second shows [how to create your own typeclass to write CSVs]({% post_url 2019-03-01-scala-typeclasses %}). They shouldn’t take you more than 10 minutes to understand.
 
 ## Functor
 

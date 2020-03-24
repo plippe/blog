@@ -20,7 +20,7 @@ trait Applicative[F[_]] extends cats.Functor[F] {
 
 The first piece of information is about the type. Applicatives are higher-kinded types. They wrap around another type like`Option[_]`, or `List[_]`.
 
-Next, Applicatives extend [Functors]({{ post_url 2019-04-01-taming-cats-functor }}). This gives them the `map` function, but forces them to obey the identity, and composition laws.
+Next, Applicatives extend [Functors]({% post_url 2019-04-01-taming-cats-functor %}). This gives them the `map` function, but forces them to obey the identity, and composition laws.
 
 Finally, Applicatives have two abstract functions. The first, `pure`, is the easiest of the two. Similar to a constructor, it wraps a value of type `A` in a new `F[A]`. The second, `ap`, executes code within the context of `F[_]`. This allows to build functions like the following.
 
