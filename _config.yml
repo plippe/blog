@@ -5,3 +5,7 @@ url: ""
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+collections:
+  hashtags:
+    output: true
