@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+{% assign tag = page.title | downcase %}
+
+<div class="page-header">
+    <h1 >Tagged "{{ tag }}"</h1>
+</div>
+
+{% assign posts = site.tags[tag] %}
+{% include posts.html %}

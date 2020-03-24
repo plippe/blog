@@ -13,9 +13,6 @@
 
 .entry {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin-bottom: var(--header-height);
 }
 
@@ -24,22 +21,8 @@
   overflow:hidden;
 }
 
-.entry .entry-header {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
-.entry .entry-header h2 {
-  font-size: 24px;
-}
-
 .entry .entry-content {
-  margin-top: 14px;
-  margin-bottom: 14px;
-  font-size: 16px;
-  -webkit-line-clamp: 3;
+  display: block;
 }
 
 .entry .entry-metadata {
@@ -49,4 +32,8 @@
 
 .post-content pre code {
   color: inherit;
+}
+
+.post-tags li {
+  margin-bottom: 10px;
 }

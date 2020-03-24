@@ -15,11 +15,12 @@ layout: default
 
   <footer class="post-footer">
     <ul class="post-tags">
-      {% for tag in page.tags | sort %}
-        <li><a href="{{ "/tags" | absolute_url }}#{{ tag | url_encode }}">{{tag}}</a></li>
+      {% for hashtag in site.hashtags %}
+        {% assign tag = hashtag.title | downcase %}
+        {% if page.tags contains tag %}
+          <li><a href="{{ hashtag.url | absolute_url }}">{{tag}}</a></li>
+        {% endif %}
       {% endfor %}
     </ul>
   </footer>
 </article>
-
-{% include schema.org/blog-posting.html %}

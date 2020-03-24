@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<ul>
+{% for hashtag in site.hashtags %}
+    {% assign tag = hashtag.title | downcase %}
+    <li><a href="{{ hashtag.url | absolute_url }}">{{ hashtag.title | downcase }} ({{ site.tags[tag] | size }})</a></li>
+{% endfor %}
+</ul>
