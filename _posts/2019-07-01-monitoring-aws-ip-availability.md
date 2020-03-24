@@ -2,7 +2,7 @@
 layout: post
 title: Monitoring AWS IP availability
 
-tags: ["aws web services", "aws lambda"]
+tags: ["amazon web services", "aws lambda"]
 ---
 
 Running virtual private cloud, or VPC, on AWS is common, and even required in some cases.

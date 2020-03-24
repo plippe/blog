@@ -3,7 +3,7 @@ layout: post
 title: Amazon S3 Versioning
 image: /assets/images/posts/printing-press.jpeg
 
-tags: ["aws web services", "amazon s3", "aws lambda"]
+tags: ["amazon web services", "amazon s3", "aws lambda"]
 ---
 
 Amazon S3 is a great way to host files. It is similar to Google Drive, Apple iCloud, and Microsoft OneDrive, but for developers. Files are uploaded into Buckets under specific Keys. They can then be downloaded from around the world. There is a little bit more to it, but that is the main gist.
