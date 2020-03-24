@@ -1,5 +1,5 @@
+url: "https://plippe.github.io"
 baseurl: "/blog"
-url: ""
 
 # Build settings
 plugins:
