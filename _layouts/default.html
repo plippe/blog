@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{site.language}}">
-    <head>
-        {% include google-tag-manager.html %}
+  <head>
+    {% include google-tag-manager.html %}
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <link rel="shortcut icon" href="{{ "/assets/images/favicon.png" | absolute_url }}">
+    <link rel="shortcut icon" href="{{ "/assets/images/favicon.png" | absolute_url }}">
 
-        <link rel="stylesheet" href="{{ "/assets/css/paper.css" | absolute_url }}" />
-        <link rel="stylesheet" href="{{ "/assets/css/rougify.css" | absolute_url }}" />
-        <link rel="stylesheet" href="{{ "/assets/css/site.css" | absolute_url }}" />
-    </head>
-    <body>
-        <header class="header">
-            <nav class="nav">
-                <p class="">&nbsp;</p>
-                <ul class="menu">
-                    <li><a href="{{ "/" | absolute_url }}">Home</a></li>
-                    <li><a href="https://github.com/plippe">GitHub</a></li>
-                    <li><a href="https://linkedin.com/in/pvinchon">LinkedIn</a></li>
-                </ul>
+    <link rel="stylesheet" href="{{ "/assets/css/kiss.css" | absolute_url }}" />
+    <link rel="stylesheet" href="{{ "/assets/css/rougify.css" | absolute_url }}" />
+    <link rel="stylesheet" href="{{ "/assets/css/custom.css" | absolute_url }}" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <nav id="nav-main" class="nav">
+          <div class="nav-right">
+            <nav id="nav-items" class="nav-item level is-mobile">
+              <a class="level-item" href="{{ "/" | absolute_url }}">Home</a>
+              <a class="level-item" href="{{ "/hashtags.html" | absolute_url }}">Tags</a>
+              <a class="level-item" href="https://github.com/plippe" target="_blank">GitHub</a>
+              <a class="level-item" href="https://linkedin.com/in/pvinchon" target="_blank">LinkedIn</a>
             </nav>
-        </header>
-        <main class="main">
-            {{content}}
-        </main>
-    </body>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        {{content}}
+      </div>
+    </section>
+  </body>
 </html>

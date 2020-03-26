@@ -2,9 +2,16 @@
 layout: default
 ---
 
+<h1 class="title">All tags</h1>
+
 <ul>
 {% for hashtag in site.hashtags %}
-    {% assign tag = hashtag.title | downcase %}
-    <li><a href="{{ hashtag.url | absolute_url }}">{{ hashtag.title | downcase }} ({{ site.tags[tag] | size }})</a></li>
+  {% assign tag = hashtag.title | downcase %}
+  {% assign post_count = site.tags[tag] | size %}
+
+  <li>
+    <a href="{{ hashtag.url | absolute_url }}">#{{ hashtag.title | downcase }}</a>
+    ({{ post_count }} post{% if post_count > 1 %}s{% endif %})
+  </li>
 {% endfor %}
 </ul>

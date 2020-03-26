@@ -1,0 +1,21 @@
+.section {
+  padding: 10px 20px 30px;
+}
+
+.nav-right {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  color: #2077b2;
+}
+
+.content a:not(.button) {
+  color: #2077b2;
+}
+
+.content a:not(.button):visited:hover {
+  border-bottom-color: #847bb9;
+}
