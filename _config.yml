@@ -4,8 +4,14 @@ baseurl: "/blog"
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
   - jekyll-sitemap
 
 collections:
   hashtags:
     output: true
+
+title: "Philippe's Blog"
+tagline: "A blog about programming"
+
+author: Philippe Vinchon
