@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Playing with Scala - Hello, World!
-image: /assets/images/posts/play.jpeg
 
 tags: ["scala", "play framework"]
 ---

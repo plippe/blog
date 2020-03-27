@@ -9,7 +9,15 @@
     {{ post.date | date: "%B %-d, %Y" }}
   </div>
 
-  <div class="content">{{ post.excerpt }}</div>
+  <div class="content">
+    {% if post.description %}
+      {{ post.description }}
+    {% elsif post.excerpt %}
+      {{ post.excerpt }}
+    {% else %}
+      {{ post.content }}
+    {% endif %}
+  </div>
 
   <div class="subtitle tags is-6">
     {% for hashtag in site.hashtags %}

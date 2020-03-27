@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Amazon S3 Versioning
-image: /assets/images/posts/printing-press.jpeg
 
 tags: ["amazon web services", "amazon s3", "aws lambda"]
 ---
