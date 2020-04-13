@@ -276,3 +276,5 @@ curl localhost:9000/pets/${ID} \
 ---
 
 The Play Framework made it simple to build a ReSTful API by handling the routing, the JSON conversion, and the HTTP statuses. The only thing missing is a proper UI.
+
+The source code is available on [GitHub](https://github.com/plippe/playing-with-scala-rest).
