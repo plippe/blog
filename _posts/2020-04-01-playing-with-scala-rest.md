@@ -155,7 +155,7 @@ val missingPetForm = UnprocessableEntity("Expected content to contain a pet form
 def post = Action { req =>
   req.body.asJson
     .toRight(missingContentType)
-    .flatMap(_.asOpt[models.SongForm].toRight(missingPetForm))
+    .flatMap(_.asOpt[models.PetForm].toRight(missingPetForm))
     .map { form => Ok(s"post - ${form}") }
     .merge
 }
@@ -163,7 +163,7 @@ def post = Action { req =>
 def putById(id: String) = Action { req =>
   req.body.asJson
     .toRight(missingContentType)
-    .flatMap(_.asOpt[models.SongForm].toRight(missingPetForm))
+    .flatMap(_.asOpt[models.PetForm].toRight(missingPetForm))
     .flatMap { form => Ok(s"putById(${id}) - ${form}") }
     .merge
 }
@@ -187,10 +187,10 @@ This allows the methods to be properly defined.
 def post = Action { req =>
   req.body.asJson
     .toRight(missingContentType)
-    .flatMap(_.asOpt[models.SongForm].toRight(missingPetForm))
+    .flatMap(_.asOpt[models.PetForm].toRight(missingPetForm))
     .map { form =>
       val id = UUID.randomUUID().toString
-      val model = models.Song(id, form.title, form.lyrics)
+      val model = models.Pet(id, form.name, form.tag)
 
       store.update(id, model)
       val json = Json.toJson(model)
@@ -202,14 +202,14 @@ def post = Action { req =>
 def putById(id: String) = Action { req =>
   req.body.asJson
     .toRight(missingContentType)
-    .flatMap(_.asOpt[models.SongForm].toRight(missingPetForm))
+    .flatMap(_.asOpt[models.PetForm].toRight(missingPetForm))
     .flatMap { form =>
       store.get(id)
-        .toRight(NotFound(s"Song not found: ${id}"))
+        .toRight(NotFound(s"Pet not found: ${id}"))
         .map((_, form))
     }
     .map { case (found, form) =>
-      val model = models.Song(found.id, form.title, form.lyrics)
+      val model = models.Pet(found.id, form.name, form.tag)
       store.update(found.id, model)
 
       NoContent
