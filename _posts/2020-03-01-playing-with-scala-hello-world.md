@@ -5,7 +5,7 @@ title: Playing with Scala - Hello, World!
 tags: ["scala", "play framework"]
 ---
 
-Scala is a language stuck between two worlds. The FP world attracts many talents, but the OOP one is often where people start. [My "taming cats" posts](/series/taming-cats.html) covered [cats](https://typelevel.org/cats/) for the first group. Bellow is the start of a few posts on the [Play Framework](http://playframework.com/) for the second.
+Scala is a language stuck between two worlds. The FP world attracts many talents, but the OOP one is often where people start. [My "taming cats" posts]({% assign hashtag = site.hashtags | where: "title", "Cats" | first %}{{ hashtag.url | absolute_url }}) covered [cats](https://typelevel.org/cats/) for the first group. Bellow is the start of a few posts on the [Play Framework](http://playframework.com/) for the second.
 
 ## Play Framework
 The Play Framework is one of the simplest ways to create web applications in Scala. The MVC framework contains [routing](https://www.playframework.com/documentation/2.8.x/ScalaRouting), [JSON formatting](https://www.playframework.com/documentation/2.8.x/ScalaJson), [forms and validation](https://www.playframework.com/documentation/2.8.x/ScalaForms), [sessions](https://www.playframework.com/documentation/2.8.x/ScalaSessionFlash), database interactions ([Anorm](https://www.playframework.com/documentation/2.8.x/Anorm), [Evolutions](https://www.playframework.com/documentation/2.8.x/Evolutions)), [templating](https://www.playframework.com/documentation/2.8.x/ScalaTemplates), [dependency injection](https://www.playframework.com/documentation/2.8.x/ScalaDependencyInjection) and much more.

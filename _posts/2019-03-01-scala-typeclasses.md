@@ -5,7 +5,7 @@ title: Scala typeclasses
 tags: ["scala", "typeclass"]
 ---
 
-Scala supports supertypes, and typeclasses. Those allowed me to write a generic `maxOption` function, in a [previous article]({% post_url 2019-02-01-scala-generics-and-typeclasses %}). With the overview out of the way, I will show in more details how typeclasses can add real value to your project.
+Scala supports supertypes, and typeclasses. Those allowed me to write a generic `maxOption` function, in a [previous article]({{ site.baseurl }}{% post_url 2019-02-01-scala-generics-and-typeclasses %}). With the overview out of the way, I will show in more details how typeclasses can add real value to your project.
 
 I am going to code a comma separated value writer. CSV is a very common format. I am not creating anything new, nor better, but I will definitely make it interesting.
 

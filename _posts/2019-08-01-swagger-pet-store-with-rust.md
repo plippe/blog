@@ -7,7 +7,7 @@ tags: ["rust", "hyper", "swagger"]
 
 > **Disclaimer:** The solution bellow works, but there are many cut corners. This is because I am learning Rust. Don’t hesitate to improve my solution in the comments, or [on GitHub](https://github.com/plippe/swagger-pet-store-rust).
 
-Rust has been on my radar for a year, or two. I even wrote about it three times. The first post was about [cross compiling Rust code on docker]({% post_url 2018-05-01-cross-compiling-rust-with-docker %}). The other two were about [learning Rust with Exercism.io]({% post_url 2018-06-01-exercism-driven-learning %}).
+Rust has been on my radar for a year, or two. I even wrote about it three times. The first post was about [cross compiling Rust code on docker]({{ site.baseurl }}{% post_url 2018-05-01-cross-compiling-rust-with-docker %}). The other two were about [learning Rust with Exercism.io]({{ site.baseurl }}{% post_url 2018-06-01-exercism-driven-learning %}).
 
 Since then, I found many excuses that kept me from progressing, but this ends now. Say hello to my fourth Rust post.
 

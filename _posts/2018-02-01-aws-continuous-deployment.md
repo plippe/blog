@@ -5,7 +5,7 @@ title: AWS continuous deployment
 tags: ["amazon web services", "aws codepipeline", "continuous deployment"]
 ---
 
-Last month, I covered how to use [AWS CodeBuild as a continuous integration solution]({% post_url 2018-01-01-aws-continuous-integration %}). It finished with a simple example of continuous deployment. AWS supposedly has a better solution, [AWS CodePipeline](https://aws.amazon.com/codepipeline/). Lets see if this is true.
+Last month, I covered how to use [AWS CodeBuild as a continuous integration solution]({{ site.baseurl }}{% post_url 2018-01-01-aws-continuous-integration %}). It finished with a simple example of continuous deployment. AWS supposedly has a better solution, [AWS CodePipeline](https://aws.amazon.com/codepipeline/). Lets see if this is true.
 
 AWS CodePipeline has many similarities to AWS Codebuild. The biggest difference is how to structure the logic. AWS CodeBuild centralizes it. While, AWS CodePipeline spreads it across many single purpose components called actions.
 

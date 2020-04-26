@@ -125,7 +125,7 @@ val (nextSeed, (a, b, c)) = abc.run(seed)
 
 Random numbers are great, but they don’t help to highlight real world uses cases for `State`. Before jumping to the obvious “cats has it”, here is a more relatable examples.
 
-![Tic-tac-toe]({{ "/images/tic-tac-toe.png" | absolute_url }})
+![Tic-tac-toe]({{ "/assets/images/tic-tac-toe.png" | absolute_url }})
 
 Tic-tac-toe, noughts and crosses, or Xs and Os, is a game that shouldn’t need an introduction. If your childhood was deprived of this masterpiece, or if you need a refresher, have a look at the [wikipedia page](https://en.wikipedia.org/wiki/Tic-tac-toe).
 

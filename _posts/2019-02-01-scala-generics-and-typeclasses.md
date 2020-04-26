@@ -5,7 +5,7 @@ title: Scala generics and typeclasses
 tags: ["scala", "typeclass"]
 ---
 
-After a few months of [writing about Cats](/series/taming-cats.html), it is great to take a small break. This pause isn’t to start anything new, but to build foundations for the upcoming posts. If you are looking to learn about those scary FP words, you will need to understand what is below.
+After a few months of [writing about Cats]({% assign hashtag = site.hashtags | where: "title", "Cats" | first %}{{ hashtag.url | absolute_url }}), it is great to take a small break. This pause isn’t to start anything new, but to build foundations for the upcoming posts. If you are looking to learn about those scary FP words, you will need to understand what is below.
 
 Chances are, if you are looking to learn about cats, you will find the start quite easy. Hopefully, I can make the end easy too.
 

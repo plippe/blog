@@ -7,7 +7,7 @@ tags: ["rust"]
 
 > **Disclaimer**: The solution bellow works, but there are many cut corners. This is because I am learning Rust. Don’t hesitate to improve my solution in the comments, or on [GitHub](https://github.com/plippe/tic-tac-toe-rust).
 
-This isn’t [the first time]({% post_url 2019-01-01-taming-cats-state %}) I talk about [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe). The game is a great way to familiarize oneself with variables, tests, loops, and functions. With all those elements it isn’t an easy project, but it isn’t hard either.
+This isn’t [the first time]({{ site.baseurl }}{% post_url 2019-01-01-taming-cats-state %}) I talk about [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe). The game is a great way to familiarize oneself with variables, tests, loops, and functions. With all those elements it isn’t an easy project, but it isn’t hard either.
 
 The simplest way to code this game is with a state machine.
 

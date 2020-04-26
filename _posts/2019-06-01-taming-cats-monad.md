@@ -16,13 +16,13 @@ trait Monad[F[_]] extends cats.Applicative[F] {
 }
 ```
 
-The Monad typeclass extends [Applicative]({% post_url 2019-05-01-taming-cats-applicative %}). This gives instances `map`, `pure`, and `ap` functions. Furthermore, Monads have `flatMap`.
+The Monad typeclass extends [Applicative]({{ site.baseurl }}{% post_url 2019-05-01-taming-cats-applicative %}). This gives instances `map`, `pure`, and `ap` functions. Furthermore, Monads have `flatMap`.
 
 `flatMap` is like `map`. It takes a function as argument, and executes it. Where `map` takes an `A => B`, `flatMap` requires an `A => F[B]`, but they both return an `F[B]`. `flatMap` allows to chain sequential effects.
 
 ## Laws
 ### Associativity
-The result from chaining calls to `flatMap` should be the same to nested ones. This is similar enough to [Functor’s composition law]({% post_url 2019-04-01-taming-cats-functor %}#composition).
+The result from chaining calls to `flatMap` should be the same to nested ones. This is similar enough to [Functor’s composition law]({{ site.baseurl }}{% post_url 2019-04-01-taming-cats-functor %}#composition).
 
 ```scala
 val f = (a: Int) => Option(a * 2)
