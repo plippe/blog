@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Playing with Scala - ReST
-
+title: Playing With Scala - ReST API
 tags: ["scala", "play framework"]
 ---
 

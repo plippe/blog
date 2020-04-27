@@ -1,7 +1,4 @@
 ---
-layout: post
-title: Scala generics and typeclasses
-
 tags: ["scala", "typeclass"]
 ---
 

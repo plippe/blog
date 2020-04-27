@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Monitoring AWS IP availability
-
+title: Monitoring AWS IP Availability
 tags: ["amazon web services", "aws lambda"]
 ---
 

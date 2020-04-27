@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - Monad
-
+title: Taming Cats - Monad
 tags: ["scala", "cats", "typeclass"]
 ---
 

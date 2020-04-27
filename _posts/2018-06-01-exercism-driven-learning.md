@@ -1,21 +1,18 @@
 ---
-layout: post
-title: Exercism driven learning
-
 tags: ["exercism", "rust"]
 ---
 
 I often get distracted by new things to study. Some are rather old, Erlang, Haskell, and others are fairly new, PureScript, Rust. I am not looking to master these skills, but at least understand how to use them.
 
-I always find mountains of theoretical resources like books, and videos. These allow me to hit the floor running, but I rarely remember most of it. I need a more hands on approach to actually learn things.
+I always find mountains of theoretical resources like books and videos. These allow me to hit the floor running, but I rarely remember most of it. I need a more hands-on approach to actually learn things.
 
-I used to build clones of well know services. This was useful to learn architectures, and frameworks, but I am passed this now. My new approach is [Exercism](https://exercism.io/) driven learning.
+I used to build clones of well know services. This was useful to learn architectures and frameworks, but I am passed this now. My new approach is [Exercism](https://exercism.io/) driven learning.
 
-Exercism is a service that hosts programming exercises, and test cases. There are many alternatives, like [CodinGame](https://www.codingame.com/), and [HackerRank](https://www.hackerrank.com/). I picked Exercism, but any other would work.
+Exercism is a service that hosts programming exercises and test cases. There are many alternatives, like [CodinGame](https://www.codingame.com/), and [HackerRank](https://www.hackerrank.com/). I picked Exercism, but any other would work.
 
-To get started with Exercism you need to [create an account](https://exercism.io/login). Next, you should install their [command line tool](https://exercism.io/getting-started), and [configure it](https://exercism.io/account/key). This will allow you to fetch the exercises, and submit your solutions. If you prefer, all their exercises are available on [GitHub](https://github.com/exercism).
+To get started with Exercism you need to [create an account](https://exercism.io/login). Next, you should install their [command-line tool](https://exercism.io/getting-started), and [configure it](https://exercism.io/account/key). This will allow you to fetch the exercises, and submit your solutions. If you prefer, all their exercises are available on [GitHub](https://github.com/exercism).
 
-Lets use Exercism, and solve their first Rust exercise.
+Let's use Exercism, and solve their first Rust exercise.
 
 ```sh
 $ exercism fetch rust
@@ -29,7 +26,7 @@ rust (Hello World) /Users/pvinchon/exercism/rust/hello-world
 unchanged: 0, updated: 0, new: 1
 ```
 
-Lets have a look at what was just downloaded.
+Let's have a look at what was just downloaded.
 
 ``` sh
 $ cd /Users/pvinchon/exercism/rust/hello-world
@@ -96,7 +93,7 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 fil...
 ```
 
-One test has passed, and none have failed, or been ignored. Tests are ignored if they have the `#[ignore]` attribute. To run ignored tests, manually remove the attribute, or run `cargo test -- --ignored`.
+One test has passed, and none have failed or been ignored. Tests are ignored if they have the `#[ignore]` attribute. To run ignored tests, manually remove the attribute, or run `cargo test -- --ignored`.
 
 To fetch the next exercise, we must first submit our solution.
 
@@ -120,6 +117,6 @@ rust (Gigasecond) /Users/pvinchon/exercism/rust/gigasecond
 unchanged: 0, updated: 0, new: 1
 ```
 
-There are currently [82 problems for Rust](https://exercism.io/tracks/rust/exercises), enough to keep you occupied for days. [Other languages](https://exercism.io/tracks) are available too, if you prefer.
+There are currently [82 problems for Rust](https://exercism.io/tracks/rust/exercises), enough to keep you occupied for days. [Other languages](https://exercism.io/tracks) are available too if you prefer.
 
-Overall Exercism is a great tool to learn new languages, or improve your skills. Hope you will find a use for it.
+Overall Exercism is a great tool to learn new languages or improve your skills. I hope you will find use for it.

@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - Eval
-
+title: Taming Cats - Eval
 tags: ["scala", "cats"]
 ---
 

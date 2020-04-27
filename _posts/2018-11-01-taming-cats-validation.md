@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - Validation
-
+title: Taming Cats - Validation
 tags: ["scala", "cats"]
 ---
 
@@ -28,7 +26,7 @@ val validIrishLandLinePhoneNumber: Option[String] =
     .flatMap(validatePhoneNumberCountry(_, "IE"))
 ```
 
-An empty `validIrishLandLinePhoneNumber` wouldn’t inform the user of the issue. Is the number valid ? Is it a land line number ? Or, is it an Irish number ?
+An empty `validIrishLandLinePhoneNumber` wouldn’t inform the user of the issue. Is the number valid? Is it a land line number? Or, is it an Irish number?
 
 `Either` offers a more flexible alternative. With a `Left`, and a `Right`, it can hold an explanation for the failed process.
 

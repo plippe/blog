@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - Equality
-
+title: Taming Cats - Equality
 tags: ["scala", "cats"]
 ---
 

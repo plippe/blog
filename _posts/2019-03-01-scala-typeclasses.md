@@ -1,7 +1,4 @@
 ---
-layout: post
-title: Scala typeclasses
-
 tags: ["scala", "typeclass"]
 ---
 

@@ -1,7 +1,4 @@
 ---
-layout: post
-title: Swagger pet store with Rust
-
 tags: ["rust", "hyper", "swagger"]
 ---
 

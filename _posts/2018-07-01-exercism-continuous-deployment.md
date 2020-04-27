@@ -1,17 +1,14 @@
 ---
-layout: post
-title: Exercism continuous deployment
-
 tags: ["exercism", "continuous deployment"]
 ---
 
-[Exercism](https://exercism.io/) is a nice little service [I talked about last month]({{ site.baseurl }}{% post_url 2018-06-01-exercism-driven-learning %}). It is great to learn new languages, or improve your skills, but it isn’t perfect. I wished it had submission validations. So lets build one.
+[Exercism](https://exercism.io/) is a nice little service [I talked about last month]({{ site.baseurl }}{% post_url 2018-06-01-exercism-driven-learning %}). It is great to learn new languages or improve your skills, but it isn’t perfect. I wished it had submission validations. So let's build one.
 
-I imagine a continuous deployment style workflow. A user would fetch a problem, write the solution, and commit it to GitHub. This would trigger tests, and allow to merge pull requests if the tests pass. Once merged into master, the pipeline would submit the solution. Users would then be allowing to fetch the next problem. The process would repeat until all exercises are completed.
+I imagine a continuous deployment style workflow. A user would fetch a problem, write the solution, and commit it to GitHub. This would trigger tests, and allow to merge pull requests if the tests pass. Once merged into master, the pipeline would submit the solution. Users would then be allowed to fetch the next problem. The process would repeat until all exercises are completed.
 
-The first obvious challenge to tackle is Exercism’s multi language support. Exercism supports over 30 languages. Each have their own way to build, and test their exercises.
+The first obvious challenge to tackle is Exercism’s multi-language support. Exercism supports over 30 languages. Each has its own way to build, and test their exercises.
 
-Docker seem to be the perfect solution to this problem. Each language would have its own image to run the tests. For example, the following `Dockerfile` would test Rust exercises.
+Docker seems to be the perfect solution to this problem. Each language would have its own image to run the tests. For example, the following `Dockerfile` would test Rust exercises.
 
 ```dockerfile
 FROM rust
@@ -37,14 +34,15 @@ for EXERCISE in $PWD/*/*; do
 done
 ```
 
-Next, with multi language support out of the way, lets solve how to submit only new solutions.
-Exercism detects, and stops duplicated submissions on their servers. We could submit all exercises, every time, but that wouldn’t be a good solution. Git can print all files that have changed between two commits. By submitting only affected solution, we reduce the amount of server calls.
+Next, with multi-language support out of the way, let's solve how to submit only new solutions.
+
+Exercism detects and stops duplicated submissions on their servers. We could submit all exercises, every time, but that wouldn’t be a good solution. Git can print all files that have changed between two commits. By submitting the only affected solution, we reduce the number of server calls.
 
 ```sh
 git log --pretty="format:" -m --name-only -n1
 ```
 
-The above command should lists all files affected by the latest commit. It works for merge commits, and squash merging. Rebase merging won’t work as it discards branch, and merge information. If you use rebase merging, you will have to find an alternative.
+The above command should list all files affected by the latest commit. It works for merge commits, and squash merging. Rebase merging won’t work as it discards branch, and merge information. If you use rebase merging, you will have to find an alternative.
 
 The listed file paths can be piped to extract only exercise names.
 
@@ -52,7 +50,7 @@ The listed file paths can be piped to extract only exercise names.
 echo $GIT_LOG | grep -o '^[^/]\+/[^/]\+' | sort | uniq
 ```
 
-Lastly, we must submit only the relevant source files. Uploading all files is possible, but will pollute the solution. We should only submit files that are new, or different to the official files.
+Lastly, we must submit only the relevant source files. Uploading all files is possible, but will pollute the solution. We should only submit files that are new, or different from the official files.
 
 We must download the relevant exercises. Those highlighted with our git command.
 
@@ -85,7 +83,7 @@ The remaining step is to submit those files.
   ...
 ```
 
-The above should be straight forward apart from the `EXERCISM_CONFIG` variables. Exercism’s configuration states where to store exercises. We are unable to use a single folder to store the official exercises, and our solutions. We could update the configuration between each `fetch`, and `submit`. But it is easier to have two distinct configuration files. I chose the latter.
+The above should be straight forward apart from the `EXERCISM_CONFIG` variables. Exercism’s configuration states where to store exercises. We are unable to use a single folder to store the official exercises and our solutions. We could update the configuration between each `fetch` and `submit`. But it is easier to have two distinct configuration files. I chose the latter.
 
 Exercism uses the default configuration file to fetch the exercises. They are downloaded in the official path, `~/exercism`. The second configuration file uses the current directory to submit solutions.
 

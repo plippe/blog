@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - NonEmpty
-
+title: Taming Cats - NonEmpty
 tags: ["scala", "cats"]
 ---
 

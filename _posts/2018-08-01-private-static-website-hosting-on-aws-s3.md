@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Private static website hosting on AWS S3
-
+title: Private Static Website Hosting On AWS S3
 tags: ["amazon web services", "amazon s3"]
 ---
 

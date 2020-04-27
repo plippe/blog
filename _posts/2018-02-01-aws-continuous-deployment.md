@@ -1,15 +1,14 @@
 ---
-layout: post
-title: AWS continuous deployment
+title: AWS Continuous Deployment
 
 tags: ["amazon web services", "aws codepipeline", "continuous deployment"]
 ---
 
-Last month, I covered how to use [AWS CodeBuild as a continuous integration solution]({{ site.baseurl }}{% post_url 2018-01-01-aws-continuous-integration %}). It finished with a simple example of continuous deployment. AWS supposedly has a better solution, [AWS CodePipeline](https://aws.amazon.com/codepipeline/). Lets see if this is true.
+Last month, I covered how to use [AWS CodeBuild as a continuous integration solution]({{ site.baseurl }}{% post_url 2018-01-01-aws-continuous-integration %}). It finished with a simple example of continuous deployment. AWS supposedly has a better solution, [AWS CodePipeline](https://aws.amazon.com/codepipeline/). Let's see if this is true.
 
-AWS CodePipeline has many similarities to AWS Codebuild. The biggest difference is how to structure the logic. AWS CodeBuild centralizes it. While, AWS CodePipeline spreads it across many single purpose components called actions.
+AWS CodePipeline has many similarities to AWS Codebuild. The biggest difference is how to structure the logic. AWS CodeBuild centralizes it. While AWS CodePipeline spreads it across many single-purpose components called actions.
 
-These actions can be seen as functions. They have inputs, outputs, and are composable with one another. Most are specific, like pulling files from AWS S3, or deploying applications to AWS ECS. These only need some basic configuration to work. The remaining ones are very generic, running on AWS Lambda, or AWS CodeBuild. If this is still too limiting, [custom actions can be created](https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html).
+These actions can be seen as functions. They have inputs, outputs, and are composable with one another. Most are specific, like pulling files from AWS S3 or deploying applications to AWS ECS. These only need some basic configuration to work. The remaining ones are very generic, running on AWS Lambda, or AWS CodeBuild. If this is still too limiting, [custom actions can be created](https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-create-custom-action.html).
 
 ![Source configuration]({{ "/assets/images/posts/source-configuration.png" | absolute_url }})
 
@@ -18,10 +17,10 @@ AWS CodePipeline group actions in stages. This simplifies flow reasoning by clus
 While many pipeline executions can coexist, a stage is limited to a single execution at a time. This allows actions to depend on previously ran ones of the same stage. It can guarantee that the build, the deployment, and the tests all use the same revision.
 
 Before moving forward, there are important details that must be highlighted:
-- Executions aren’t triggered with webhooks. They happen after identifying differences between the current state and the previous one. This can cause delays, but also a set of changes can trigger a single execution.
+- Executions aren’t triggered by webhooks. They happen after identifying differences between the current state and the previous one. This can cause delays, but also a set of changes can trigger a single execution.
 - Git sources, like AWS CodeCommit, and GitHub, can only watch a single branch. Pull requests won’t trigger executions.
 - Git sources discard git information, making it unavailable to other actions.
-To circumvent those limitations, AWS CodeBuild will first integrate the code. At the end of the build specification, on the master branch, the repository will be zipped, and pushed to AWS S3.
+To circumvent those limitations, AWS CodeBuild will first integrate the code. At the end of the build specification, on the master branch, the repository will be zipped and pushed to AWS S3.
 
 ```yaml
 version: 0.2
@@ -69,10 +68,10 @@ artifacts:
 ```
 
 With the imagedefinitions.json file, the AWS ECS action only requires configuration.
-To avoid deploying straight to production, other stages can be added before. These would deploy the application to more private environments. The execution would continue only after a manual approval.
+To avoid deploying straight to production, other stages can be added before. These would deploy the application to more private environments. The execution would continue only after manual approval.
 
 ![Deploy dark Stage]({{ "/assets/images/posts/deploy-dark-stage.png" | absolute_url }})
 
-AWS CodePipeline isn’t a perfect product. It does offer a good continuous deployment solution, but lacks continuous integration. This makes AWS CodePipeline another tool instead of a full replacement.
+AWS CodePipeline isn’t a perfect product. It does offer a good continuous deployment solution but lacks continuous integration. This makes AWS CodePipeline another tool instead of a full replacement.
 
 If deploying your master branch straight to production makes you uneasy, AWS CodePipeline could be for you. Just remember to add continuous integration.

@@ -1,11 +1,6 @@
----
-layout: post
-title: Passwordless authentication
----
-
 Passwords make the life of your users difficult. Good ones are hard to remember, even harder to type, they should be unique, and changed frequently. The only solution seems to be a password manager like [1password](https://1password.com/), or [lastpass](https://www.lastpass.com/), and a strict routine. It’s time to change this, let’s build something better.
 
-User authentication is a simple process. A unique identifier is submitted to a server. In most cases this is the user’s email, and password. If it matches a known user, then a session is opened for that user. Extra steps can be added to the process, like two factor authentication (2FA), but the idea is the same.
+User authentication is a simple process. A unique identifier is submitted to a server. In most cases, this is the user’s email and password. If it matches a known user, then a session is opened for that user. Extra steps can be added to the process, like two-factor authentication (2FA), but the idea is the same.
 
 Instead of forcing a user to come up with a complex and unique identifier, the server can securely send it to them. This process is like the one often used to retrieve lost, or forgotten credentials.
 

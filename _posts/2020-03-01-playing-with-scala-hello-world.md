@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Playing with Scala - Hello, World!
-
+title: Playing With Scala - Hello, World!
 tags: ["scala", "play framework"]
 ---
 

@@ -1,7 +1,4 @@
 ---
-layout: post
-title: Tic Tac Toe with Rust
-
 tags: ["rust"]
 ---
 
@@ -196,7 +193,7 @@ fn next_turn(player: &Player, board: &Board) -> State {
   println!("Player {:?}'s turn", player);
   println!("{}", board.to_string());
   println!("");
-  println!("Where would you like to play ?");
+  println!("Where would you like to play?");
 
   read_input::<Coordinates>()
     .and_then(|coordinates| board.insert(&coordinates, &player))

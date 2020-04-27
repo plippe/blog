@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - Functor
-
+title: Taming Cats - Functor
 tags: ["scala", "cats", "typeclass"]
 ---
 

@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - State
-
+title: Taming Cats - State
 tags: ["scala", "cats"]
 ---
 

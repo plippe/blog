@@ -1,7 +1,4 @@
 ---
-layout: post
-title: Strongly typed pancakes
-
 tags: ["scala"]
 ---
 
@@ -15,7 +12,7 @@ Shrove Tuesday is over. After eating my weight in pancakes, I had a longer look 
 pinch of salt
 ```
 
-Recipes holds a lot of information: ingredients, quantities, and units of measure. Like [the mars climate orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter), types would make cooking safer.
+Recipes hold a lot of information: ingredients, quantities, and units of measure. Like [the mars climate orbiter](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter), types would make cooking safer.
 
 ```scala
 case class IngredientMeasurement(
@@ -67,7 +64,7 @@ val crepeRecipe = Iterable(
 
 While this representation fixes the issue with ingredients, the units one remain.
 
-Units are split in quantities like mass, and volume. Within the same quantity, converting one unit to another often only takes a multiplication. Cross quantity operations aren’t allowed.
+Units are split in quantities like mass and volume. Within the same quantity, converting one unit to another often only takes a multiplication. Cross quantity operations aren’t allowed.
 
 ```scala
 trait Quantity
@@ -141,6 +138,6 @@ val crepeRecipe = Iterable(
 )
 ```
 
-My recipe is now type safe. It doesn’t make my crepes any healthier, but it should help keep them tasty.
+My recipe is now type-safe. It doesn’t make my crepes any healthier, but it should help keep them tasty.
 
 Cooking aside. The main selling point of statically typed languages is their pre-runtime checks. Having specific types, instead of generic ones, increase the effectiveness of those tests. Instead of using strings everywhere, don’t be afraid of creating your own types.

@@ -1,7 +1,5 @@
 ---
-layout: post
-title: Taming cats - Applicative
-
+title: Taming Cats - Applicative
 tags: ["scala", "cats", "typeclass"]
 ---
 
