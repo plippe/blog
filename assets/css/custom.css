@@ -19,3 +19,7 @@
 .content a:not(.button):visited:hover {
   border-bottom-color: #847bb9;
 }
+
+.content .highlight {
+  margin-bottom: 1.5em;
+}
