@@ -356,7 +356,7 @@ Also, don't forget to add the request as a view input.
 The `editArticle` view is the last to write. It should allow users to send `PUT`, `PATCH`, or `DELETE` requests. The only issue is that browsers can't submit forms with these methods.
 
 
-## Brower Limitations
+## Browser Limitations
 > **method**
 >
 > The HTTP method to submit the form with. Possible values:
