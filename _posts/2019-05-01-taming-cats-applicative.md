@@ -27,7 +27,7 @@ def tuple2[A, B](fa: F[A], fb: F[B]): F[(A, B)] =
   ap(map(fa)(a => (b: B) => (a, b)))(fb)
 ```
 
-`tuple2`, also called `product`, combines the content of two `F[_]` into a `tuple`. `tuple3`, `tuple4`, up to `tuple22`, allow to combine more.
+`tuple2`, also called `product`, combines the content of two `F[_]` into a `tuple`. `tuple3`, `tuple4`, up to `tuple22`, combines more.
 
 ## Laws
 On top of the Functor laws, Applicatives have two they must obey.
@@ -92,7 +92,7 @@ object InvoiceFactory {
 }
 ```
 
-Without dependency injection, this constructor becomes very rigid. A better approach is to give it readers.
+Without dependency injection, this constructor becomes very rigid. A better approach is to give its readers.
 
 ```scala
 trait UsersReader {
@@ -120,7 +120,7 @@ class InvoiceFactory(
 }
 ```
 
-Those readers can access the information from a variety of sources. Some would be pure, while others could throw errors. To represent this, results are wrapped in a type.
+Those readers can access the data from a variety of sources. Some would be pure, while others could throw errors. To represent this, results are wrapped in a type.
 
 Enforcing a particular effect, like `Option`, `Either`, or `Future`, would be limiting. A higher-kinded type is the perfect solution.
 
@@ -198,7 +198,7 @@ scala> List(1, 2, 3).traverse { i => println(i); none[Int] }
 res1: Option[List[Int]] = None
 ```
 
-`.mapN` is a helper for `tupled`, and then `map`. It composes Applicatives into an tuple, and maps over it.
+`.mapN` is a helper for `tupled`, and then `map`. It composes Applicatives into a tuple and maps over it.
 
 ```scala
 scala> (1.some, 2.some, 3.some).mapN {

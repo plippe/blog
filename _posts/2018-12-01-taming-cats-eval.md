@@ -17,7 +17,7 @@ def fib(n: Int): Int = n match {
 }
 ```
 
-The method will call itself over and over again until it reaches 0, or 1. The recursion makes the logic quite obvious compared to a solution with mutable state, and a loop.
+The method will call itself over and over again until it reaches 0 or 1. The recursion makes the logic quite obvious compared to a solution with a mutable state and a loop.
 
 The fib function has a few questionable decisions; e.g. negative numbers, Int type. To avoid focusing on the wrong problems, the rest of the article will focus on the following function.
 
@@ -28,16 +28,16 @@ def foo(n: Int): Int = n match {
 }
 ```
 
-foo counts the positive numbers between 0, and n. The function is over engineered, but highlights a common issue with recursive functions.
+foo counts the positive numbers between 0 and n. The function is over-engineered but highlights a common issue with recursive functions.
 
-Function invocations create new stack frame. The memory holds the function’s parameters, and local variables. When the application reaches the end of the function, it releases the memory.
+Function invocations create a new stack frame. The memory holds the function’s parameters and local variables. When the application reaches the end of the function, it releases the memory.
 
-The foo function will create n stack frames before releasing them all. If n is big enough, the application will run out of stack memory, and throw a stack overflow error.
+The foo function will create n stack frames before releasing them all. If n is big enough, the application will run out of stack memory and throw a stack overflow error.
 
 ![Stack overflow]({{ "/assets/images/posts/stack-overflow.png" | absolute_url }})
 
 
-To overcome this, some languages, like Scala, offers tail recursion. It allows recursive calls to reuse the parent stack frame instead of creating a child one. This removes the risk of stack overflows. For the compiler to optimise the function, it must end with the recursive call.
+To overcome this, some languages, like Scala, offer tail recursion. It allows recursive calls to reuse the parent stack frame instead of creating a child. This removes the risk of stack overflows. For the compiler to optimize the function, it must end with the recursive call.
 
 `foo`’s last operation is currently an addition. Updates are required.
 
@@ -53,7 +53,7 @@ def foo(n: Int): Int = {
 }
 ```
 
-This tail recursive `foo` can run for any `n` without throwing any errors. While it is safer, it doesn’t solve all recursion issues. The compiler is unable to optimise alternating calls between many recursive functions. Each call will create a stack frame, and eventually throw a stack overflow error.
+This tail-recursive `foo` can run for any `n` without throwing any errors. While it is safer, it doesn’t solve all recursion issues. The compiler is unable to optimize alternating calls between many recursive functions. Each call will create a stack frame and eventually throw a stack overflow error.
 
 ```scala
 def foo(n: Int, acc: Int): Int = n match {
@@ -67,7 +67,7 @@ def bar(n: Int, acc: Int): Int = n match {
 }
 ```
 
-A way of overcoming the issue is with trampolines. A tail recursive function receives as argument a result, or a request. The result is the instant solution, like the `0`, and `1` from the Fibonacci solution. On the other hand, the request will return a result, or another request.
+A way of overcoming the issue is with trampolines. A tail-recursive function receives as argument a result or a request. The result is the instant solution, like the `0` and `1` from the Fibonacci solution. On the other hand, the request will return a result or another request.
 
 ```scala
 sealed trait Trampoline[T]
@@ -93,7 +93,7 @@ def bar(n: Int, acc: Int): Trampoline[Int] = n match {
 }
 ```
 
-Cats [Eval](https://typelevel.org/cats/datatypes/eval.html) is yet another solution. It comes with three constructs to represent eager, lazy, and memoized evaluation. Furthermore, it implements `map`, and `flatMap`. This makes the following function more readable than the previous trampoline, and tail recursive ones.
+Cats [Eval](https://typelevel.org/cats/datatypes/eval.html) is yet another solution. It comes with three constructs to represent eager, lazy, and memoized evaluation. Furthermore, it implements `map` and `flatMap`. This makes the following function more readable than the previous trampoline and tail-recursive ones.
 
 ```scala
 import cats._
@@ -109,4 +109,4 @@ def bar(n: Int): Eval[Int] = n match {
 }
 ```
 
-If you are struggling to write a tail recursion function, or you just prefer more readable code, have a look at `Eval`. It won’t revolutionise your code, but will definitely make it more stable.
+If you are struggling to write a tail recursion function, or you just prefer more readable code, have a look at `Eval`. It won’t revolutionize your code, but will definitely make it more stable.

@@ -8,7 +8,7 @@ Rust has been on my radar for a year, or two. I even wrote about it three times.
 
 Since then, I found many excuses that kept me from progressing, but this ends now. Say hello to my fourth Rust post.
 
-To start, I will introduce swagger, and its Pet Store example. Next, I will have a quick look at Rust’s web frameworks. Finally, I will create a web service that fulfill the Pet Store specification.
+To start, I will introduce Swagger, and its Pet Store example. Next, I will have a quick look at Rust’s web frameworks. Finally, I will create a web service that fulfills the Pet Store specification.
 
 ## Pet Store
 [Swagger](https://swagger.io/) aims to reduce friction in building, and consuming APIs. Given an [OpenAPI specification](https://swagger.io/specification/), their tools can [generate code](https://swagger.io/tools/swagger-codegen/), [display documentation](https://swagger.io/tools/swagger-ui/), and [more](https://swagger.io/tools/).
@@ -26,9 +26,9 @@ My first Rust project could be a hello world, a todo application, or an original
 ## Web servers
 [Are we web yet?](https://www.arewewebyet.org/) lists two groups of Rust web frameworks.
 
-The first contains [Hyper](https://hyper.rs/), and [tiny_http](https://crates.io/crates/tiny_http). They are low level frameworks that handle connections, requests, and responses. All other functionalities are missing.
+The first contains [Hyper](https://hyper.rs/), and [tiny_http](https://crates.io/crates/tiny_http). They are low-level frameworks that handle connections, requests, and responses. All other functionalities are missing.
 
-The second has higher level frameworks: [Actix-web](https://actix.rs/), [Rocket](https://rocket.rs/), and [many more](https://www.arewewebyet.org/topics/frameworks/). Often built on top of the previous group, they centralize common features in a need package.
+The second has higher-level frameworks: [Actix-web](https://actix.rs/), [Rocket](https://rocket.rs/), and [many more](https://www.arewewebyet.org/topics/frameworks/). Often built on top of the previous group, they centralize common features in a need package.
 
 The pet store is quite a simple project. The biggest hurdles are the routing, and JSON handling. This makes neither group attractive. The first would need extra work, but the second would make it too easy.
 
@@ -53,7 +53,7 @@ cargo run
 Hello, world!
 ```
 
-`Hyper` has a good [getting started guide](https://hyper.rs/guides/server/hello-world/). In short, there is a new depency in `Cargo.toml`.
+`Hyper` has a good [getting started guide](https://hyper.rs/guides/server/hello-world/). In short, there is a new dependency in `Cargo.toml`.
 
 ```toml
 # In Cargo.toml
@@ -94,7 +94,7 @@ Hello, world!
 ```
 
 ## Router
-Hyper doesn’t come with a built in routing logic. [The echo example](https://hyper.rs/guides/server/echo/) suggests to pattern match the request’s method, and path.
+Hyper doesn’t come with a built-in routing logic. [The echo example](https://hyper.rs/guides/server/echo/) suggests to pattern match the request’s method and path.
 
 ```rust
 match (req.method(), req.uri().path()) {
@@ -110,7 +110,7 @@ match (req.method(), req.uri().path()) {
 };
 ```
 
-Pattern matching strings only work for static urls. Those containing variables, like `/pets/{petId}`, need a bit more logic. Splitting the string on the slash character, `/`, returns matchable segments, and extractable variables.
+Pattern matching strings only work for static URLs. Those containing variables, like `/pets/{petId}`, need a bit more logic. Splitting the string on the slash character, `/`, returns matchable segments, and extractable variables.
 
 ```rust
 fn get_method<A>(req: &Request<A>) -> &Method {
@@ -142,7 +142,7 @@ match (get_method(&req), get_path_segments(&req).as_slice()) {
 
 The specification requires `pet_id` to be a `String`. Other types would need more code, but not in this example.
 
-The last missing router pieces are the query arguments. `listPets` has a `limit` parameter, and another to paginate results. The latter isn’t in the specification, but will be available in the `x-next` header.
+The last missing router pieces are the query arguments. `listPets` has a `limit` parameter, and another to paginate results. The latter isn’t in the specification but will be available in the `x-next` header.
 
 ```rust
 use std::str::FromStr;
@@ -217,7 +217,7 @@ struct Error {
 }
 ```
 
-Writing my own serializer is a bad move. I shouldn’t reinvent the wheel. Hyper might not ship with JSON support, but that isn’t an issue with [Serde](https://serde.rs/) around.
+Writing my serializer is a bad move. I shouldn’t reinvent the wheel. Hyper might not ship with JSON support, but that isn’t an issue with [Serde](https://serde.rs/) around.
 
 ```rust
 use hyper::http::header::CONTENT_TYPE;
@@ -238,7 +238,7 @@ Response::builder()
 
 With the output returning valid JSON, the next part is about the input.
 
-Hyper represent payloads as stream of bytes. It reads them asynchronisly making their content available in `Future`s. This affects return types. It forces `Box<Future<... Response<A> ...>` instead of `Result<Response<A>>`.
+Hyper represents payloads as a stream of bytes. It reads them asynchronously making their content available in `Future`s. This affects return types. It forces `Box<Future<... Response<A> ...>` instead of `Result<Response<A>>`.
 
 ```rust
 use futures::{Future, Stream};
@@ -287,6 +287,6 @@ With all the bricks defined, the Swagger specification is no longer hard to impl
 
 ---
 
-And this concludes my first real Rust project. The full code is available on [GitHub](https://github.com/plippe/swagger-pet-store-rust), but I wouldn’t recommend it. It is quite unsafe, with `unwrap` in many places. The variable ownership, and references are probably wrong. It also lacks basic functionalities, like database interactions.
+And this concludes my first real Rust project. The full code is available on [GitHub](https://github.com/plippe/swagger-pet-store-rust), but I wouldn’t recommend it. It is quite unsafe, with `unwrap` in many places. The variable ownership and references are probably wrong. It also lacks basic functionalities, like database interactions.
 
-I seem to have plenty more to learn, and that is really exiting. I look forward to improve this project as I get better.
+I seem to have plenty more to learn, and that is exciting. I look forward to improving this project as I get better.

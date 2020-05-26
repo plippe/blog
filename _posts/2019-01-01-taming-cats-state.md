@@ -11,7 +11,7 @@ When you google functional programming, you can find many definitions. Most have
 >
 > *- [Alvin Alexander](https://alvinalexander.com/scala/fp-book/what-is-functional-programming)*
 
-This is often described in relations to inputs, outputs, mutability, and outside world. In short, a pure function’s output should only depend on its input. Furthermore, the function shouldn’t affect, or be affected by the outside world.
+This is often described in relation to inputs, outputs, mutability, and the outside world. In short, a pure function’s output should only depend on its input. Furthermore, the function shouldn’t affect or be affected by the outside world.
 
 ```scala
 def sum(a: Int, b: Int): Int = a + b
@@ -29,7 +29,7 @@ def randomInt(): Int = {
 }
 ```
 
-`randomInt` takes no inputs. It should always return the same value. The unpredictable output makes it hard to reproduce behaviour, e.g. tests, debugging.
+`randomInt` takes no inputs. It should always return the same value. The unpredictable output makes it hard to reproduce behavior, e.g. tests, debugging.
 
 To make the function pure, it must take an input that will determine the output.
 
@@ -57,7 +57,7 @@ val b = randomInt(seed)
 val c = randomInt(seed)
 ```
 
-Because using the same seed always return the same value, it must change after use. To avoid mutability, and impure functions, `randomInt` must return the next seed with its result.
+Because using the same seed always return the same value, it must change after use. To avoid mutability and impure functions, `randomInt` must return the next seed with its result.
 
 ```scala
 def randomInt(seed: Long): (Long, Int) = {
@@ -108,7 +108,7 @@ val randomInt: State[Long, Int] = State({ seed =>
 })
 ```
 
-`map`, and `flatMap` allows `State` to be used in for comprehensions. This hides the management of the seed, and removes the risk of reusing an old value.
+`map`, and `flatMap` allows `State` to be used in for comprehensions. This hides the management of the seed and removes the risk of reusing an old value.
 
 ```scala
 val abc = for {
@@ -121,13 +121,13 @@ val seed = 123L
 val (nextSeed, (a, b, c)) = abc.run(seed)
 ```
 
-Random numbers are great, but they don’t help to highlight real world uses cases for `State`. Before jumping to the obvious “cats has it”, here is a more relatable examples.
+Random numbers are great, but they don’t help to highlight real-world uses cases for `State`. Before jumping to the obvious “cats has it”, here is a more relatable example.
 
 ![Tic-tac-toe]({{ "/assets/images/tic-tac-toe.png" | absolute_url }})
 
 Tic-tac-toe, noughts and crosses, or Xs and Os, is a game that shouldn’t need an introduction. If your childhood was deprived of this masterpiece, or if you need a refresher, have a look at the [wikipedia page](https://en.wikipedia.org/wiki/Tic-tac-toe).
 
-The following information represent the game.
+The following information represents the game.
 
 ```scala
 sealed trait Player
@@ -150,7 +150,7 @@ case object Draw extends Outcome
 case class Win(player: Player) extends Outcome
 ```
 
-An object must record the game’s state after each turn. It can track whos turn it is, which player marked a cell, and other game related information.
+An object must record the game’s state after each turn. It can track whose turn it is, which player marked a cell, and other game-related information.
 
 ```scala
 case class GameState(
@@ -162,7 +162,7 @@ case class GameState(
 )
 ```
 
-A handful of functions must interact with the `GameState`. It could be a global variable, or stored in a database. This would need impure interactions. A better solution is to pass latest `GameState` as input, and expect the updated one as output. This looks a lot like `State`.
+A handful of functions must interact with the `GameState`. It could be a global variable or stored in a database. This would need impure interactions. A better solution is to pass the latest `GameState` as input, and expect the updated one as output. This looks a lot like `State`.
 
 ```scala
 // Please ignore the IO, it is hard to build an example without it

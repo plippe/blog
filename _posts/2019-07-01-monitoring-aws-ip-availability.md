@@ -5,11 +5,11 @@ tags: ["amazon web services", "aws lambda"]
 
 Running virtual private cloud, or VPC, on AWS is common, and even required in some cases.
 
-VPCs are virtual networks. They logically group AWS resources. Those instances are either connected to the internet, or not thanks to subnets. All the relevant information is very well documented on [Amazon’s website](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
+VPCs are virtual networks. They logically group AWS resources. Those instances are either connected to the internet or not thanks to subnets. All the relevant information is very well documented on [Amazon’s website](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
 
 Resources can be added to VPCs, and subnets as long as those have available IPs. Running out of addresses will make it impossible to launch new instances. This will impact services that automatically scale, like lambdas.
 
-There are many opinions on how to pick the right size, and I doubt mine has any real value. Instead, I will show how to monitor available ips.
+There are many opinions on how to pick the right size, and I doubt mine has any real value. Instead, I will show how to monitor available IPs.
 
 ## Code
 To avoid dealing with a full server, the application is best as an AWS Lambda. Any runtime with a quick cold start should work. I picked JavaScript.
@@ -67,7 +67,7 @@ forEachSubnet("us-east-1", console.log);
 forEachSubnet("us-east-2", console.log);
 ```
 
-Hard coding a list of region isn’t a viable solution. [`describeRegions`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EC2.html#describeRegions-property) is preferable. It retrieve every available region on AWS.
+Hard coding a list of regions isn’t a viable solution. [`describeRegions`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EC2.html#describeRegions-property) is preferable. It retrieves every available region on AWS.
 
 ```javascript
 const AWS = require("aws-sdk");
@@ -85,7 +85,7 @@ forEachRegion(region =>
 );
 ```
 
-The subnets objects have useful information to extract. Identifiers, and the `AvailableIpAddressCount` attribute are obvious choices. The total amount of IP addresses isn’t available on the object, but via the [`CidrBlock`](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Instead of reinventing the wheel, the [ip-cidr package](https://www.npmjs.com/package/ip-cidr) offers a quick solution.
+The subnets objects have useful information to extract. Identifiers and the `AvailableIpAddressCount` attribute are obvious choices. The total amount of IP addresses isn’t available on the object, but via the [`CidrBlock`](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Instead of reinventing the wheel, the [ip-cidr package](https://www.npmjs.com/package/ip-cidr) offers a quick solution.
 
 ```javascript
 const IPCIDR = require("ip-cidr");
@@ -149,7 +149,7 @@ Resources:
         ZipFile: "//"
 ```
 
-AWS Lambda writes to CloudWatch Logs. Their role needs the permissions to interact with Log Groups, and Log Streams.
+AWS Lambda writes to CloudWatch Logs. Their role needs the permissions to interact with Log Groups and Log Streams.
 
 ```yml
 LogGroup:
@@ -178,7 +178,7 @@ RoleCloudWatchLog:
       - !Ref Role
 ```
 
-The application also interacts with EC2, and CloudWatch.
+The application also interacts with EC2 and CloudWatch.
 
 ```yml
 RoleEc2:
@@ -239,7 +239,7 @@ Every execution puts metrics on CloudWatch to trigger alarms.
 
 The metric should either be the amount of available IPs, or the percentage of remaining ones.
 
-When this metric is below an acceptable threshold, the alarm should message the SNS topic. This will draw attention to the subnet to add another, or replace it by a larger one.
+When this metric is below an acceptable threshold, the alarm should message the SNS topic. This will draw attention to the subnet to add another or replace it by a larger one.
 
 Adding alarms for every subnet is quite a repetitive task. Using the CLI, or building a small application can make the process less of a chore. Something for the next post … maybe.
 

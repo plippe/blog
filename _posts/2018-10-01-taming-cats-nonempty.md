@@ -5,7 +5,7 @@ tags: ["scala", "cats"]
 
 > *Cats is a library which provides abstractions for functional programming in the [Scala programming language](https://scala-lang.org/). The name is a playful shortening of the word category.*
 
-As [I said previously]({{ site.baseurl }}{% post_url 2018-09-01-taming-cats-equality %}), Scala has a few issues, and [cats](https://typelevel.org/cats/) offer some solutions. To avoid being overwhelmed, I will only be looking at NonEmpty in this post.
+As [I said previously]({{ site.baseurl }}{% post_url 2018-09-01-taming-cats-equality %}), Scala has a few issues and [cats](https://typelevel.org/cats/) offer some solutions. To avoid being overwhelmed, I will only be looking at NonEmpty in this post.
 
 Scala has a wonderful collection library, but some of its methods are partial functions. The `head` method, for example, will throw an error when it is called on an empty list.
 
@@ -36,7 +36,7 @@ res1: Option[Int] = None
 
 These total functions guaranty the code won’t throw errors. They help build better code, but it takes commitment to use them over the other. Furthermore, without proper warning, it is easy to use the partial function without knowing.
 
-To avoid crashing the application unexpectedly, lists could be implemented similarly to `Option`. `List` would define an interface for `EmptyList`, and `NonEmptyList`.
+To avoid crashing the application unexpectedly, lists could be implemented similarly to `Option`. `List` would define an interface for `EmptyList` and `NonEmptyList`.
 
 ```scala
 trait OptList[T] {
@@ -65,7 +65,7 @@ object NonEmptyList {
 }
 ```
 
-`NonEmptyList` adds safety, but also allow methods to require non empty lists.
+`NonEmptyList` adds safety, but also allow methods to require non-empty lists.
 
 ```scala
 def average(list: NonEmptyList[Int]) = {
@@ -73,7 +73,7 @@ def average(list: NonEmptyList[Int]) = {
 }
 ```
 
-This added type safety can be found in [cats](https://typelevel.org/cats/datatypes/nel.html). It has many implementations like `NonEmptyList`, and `NonEmptyVector`. If you can get used to the API, you will avoid a lot of silly runtime errors.
+This added type safety can be found in [cats](https://typelevel.org/cats/datatypes/nel.html). It has many implementations like `NonEmptyList` and `NonEmptyVector`. If you can get used to the API, you will avoid a lot of silly runtime errors.
 
 ```scala
 import cats.data.NonEmptyList

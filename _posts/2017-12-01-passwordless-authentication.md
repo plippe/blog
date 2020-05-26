@@ -1,4 +1,4 @@
-Passwords make the life of your users difficult. Good ones are hard to remember, even harder to type, they should be unique, and changed frequently. The only solution seems to be a password manager like [1password](https://1password.com/), or [lastpass](https://www.lastpass.com/), and a strict routine. It’s time to change this, let’s build something better.
+Passwords make the life of your users difficult. Good ones are hard to remember, even harder to type, they should be unique and changed frequently. The only solution seems to be a password manager like [1password](https://1password.com/), or [lastpass](https://www.lastpass.com/), and a strict routine. It’s time to change this, let’s build something better.
 
 User authentication is a simple process. A unique identifier is submitted to a server. In most cases, this is the user’s email and password. If it matches a known user, then a session is opened for that user. Extra steps can be added to the process, like two-factor authentication (2FA), but the idea is the same.
 
@@ -33,7 +33,7 @@ def create_identifier():
 def create_contact_information_identifier_combination(
   contact_information,
   identifier):
-  """Save the contact information, and identifier"""
+  """Save the contact information and identifier"""
 
 def send_identifier(contact, identifier):
   """Send the identifier to the contact information"""
@@ -65,11 +65,11 @@ def get_identifier(request):
 def find_contact_information_identifier_combination(
   contact_information,
   identifier):
-  """Returns the saved contact information, and identifier"""
+  """Returns the saved contact information and identifier"""
 
 def delete_contact_information_identifier_combination(
   contact_information_identifier):
-  """Delete the saved contact information, and identifier"""
+  """Delete the saved contact information and identifier"""
 
 def start_user_session(contact_information):
   """Start a session with the given contact information"""
@@ -77,4 +77,4 @@ def start_user_session(contact_information):
 
 The above solution solves all the issues highlighted at the start. Furthermore, it requires less work, than the typical approach, to put in place.
 
-For your next projects, think of your users, and say no to passwords.
+For your next projects, think of your users and say no to passwords.

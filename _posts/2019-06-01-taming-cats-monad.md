@@ -3,7 +3,7 @@ title: Taming Cats - Monad
 tags: ["scala", "cats", "typeclass"]
 ---
 
-Third one down the list is Monad.
+The third one down the list is Monad.
 
 ## Monad
 The following 3 lines summarize [cats’ definition of Monad](https://github.com/typelevel/cats/blob/master/core/src/main/scala/cats/Monad.scala).
@@ -16,11 +16,11 @@ trait Monad[F[_]] extends cats.Applicative[F] {
 
 The Monad typeclass extends [Applicative]({{ site.baseurl }}{% post_url 2019-05-01-taming-cats-applicative %}). This gives instances `map`, `pure`, and `ap` functions. Furthermore, Monads have `flatMap`.
 
-`flatMap` is like `map`. It takes a function as argument, and executes it. Where `map` takes an `A => B`, `flatMap` requires an `A => F[B]`, but they both return an `F[B]`. `flatMap` allows to chain sequential effects.
+`flatMap` is like `map`. It takes a function as an argument, and executes it. Where `map` takes an `A => B`, `flatMap` requires an `A => F[B]`, but they both return an `F[B]`. `flatMap` allows us to chain sequential effects.
 
 ## Laws
 ### Associativity
-The result from chaining calls to `flatMap` should be the same to nested ones. This is similar enough to [Functor’s composition law]({{ site.baseurl }}{% post_url 2019-04-01-taming-cats-functor %}#composition).
+The result from chaining calls to `flatMap` should be the same as nested ones. This is similar enough to [Functor’s composition law]({{ site.baseurl }}{% post_url 2019-04-01-taming-cats-functor %}#composition).
 
 ```scala
 val f = (a: Int) => Option(a * 2)
@@ -44,9 +44,9 @@ assert(
 ## Example
 A concrete example will make Monads easier to understand.
 
-Loyalty programs encourage existing customers to come back. In exchange of discounts, users allow the store to record their purchase history.
+Loyalty programs encourage existing customers to come back. In exchange for discounts, users allow the store to record their purchase history.
 
-A customer give their loyalty card, and their cart at the counter.
+A customer gives their loyalty card and their cart at the counter.
 
 ```scala
 import java.util.UUID
@@ -99,7 +99,7 @@ class Counter(
 }
 ```
 
-This implementation doesn’t leave any room for effects. This would require the `UsersReader` to return a `User` even when none exist. Using `Option` would make more sense, but why limit it.
+This implementation doesn’t leave any room for effects. This would require the `UsersReader` to return a `User` even when none exists. Using `Option` would make more sense, but why limit it.
 
 ```scala
 trait UsersReader[F[_]] {
@@ -129,7 +129,7 @@ class Counter[F[_]](
 
 `fUser.id` will now throw a compilation error.
 
-The `id` attribute doesn’t exist for `F[User]`. Functor’s `map` would create an `F[F[Unit]]`. To avoid this russian doll effect, Monad’s `flatMap` is required.
+The `id` attribute doesn’t exist for `F[User]`. Functor’s `map` would create an `F[F[Unit]]`. To avoid this Russian doll effect, Monad’s `flatMap` is required.
 
 ```scala
 import cats.implicits._

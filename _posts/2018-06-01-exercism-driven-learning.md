@@ -8,11 +8,11 @@ I always find mountains of theoretical resources like books and videos. These al
 
 I used to build clones of well know services. This was useful to learn architectures and frameworks, but I am passed this now. My new approach is [Exercism](https://exercism.io/) driven learning.
 
-Exercism is a service that hosts programming exercises and test cases. There are many alternatives, like [CodinGame](https://www.codingame.com/), and [HackerRank](https://www.hackerrank.com/). I picked Exercism, but any other would work.
+Exercism is a service that hosts programming exercises and test cases. There are many alternatives, like [CodinGame](https://www.codingame.com/) and [HackerRank](https://www.hackerrank.com/). I picked Exercism, but any other would work.
 
-To get started with Exercism you need to [create an account](https://exercism.io/login). Next, you should install their [command-line tool](https://exercism.io/getting-started), and [configure it](https://exercism.io/account/key). This will allow you to fetch the exercises, and submit your solutions. If you prefer, all their exercises are available on [GitHub](https://github.com/exercism).
+To get started with Exercism you need to [create an account](https://exercism.io/login). Next, you should install their [command-line tool](https://exercism.io/getting-started) and [configure it](https://exercism.io/account/key). This will allow you to fetch the exercises and submit your solutions. If you prefer, all their exercises are available on [GitHub](https://github.com/exercism).
 
-Let's use Exercism, and solve their first Rust exercise.
+Let's use Exercism and solve their first Rust exercise.
 
 ```sh
 $ exercism fetch rust
@@ -39,7 +39,7 @@ drwxr-xr-x  3 pvinchon  staff    96 16 May 23:37 src
 drwxr-xr-x  3 pvinchon  staff    96 16 May 23:37 tests
 ```
 
-This problem, like all other Exercism Rust problems, is a [Cargo](https://doc.rust-lang.org/stable/cargo/) project. It follows [clear conventions](https://github.com/exercism/rust#contributing-a-new-exercise), allowing you to focus on your solution, and not on how to run the tests.
+This problem, like all other Exercism Rust problems, is a [Cargo](https://doc.rust-lang.org/stable/cargo/) project. It follows [clear conventions](https://github.com/exercism/rust#contributing-a-new-exercise), allowing you to focus on your solution and not on how to run the tests.
 
 ```sh
 $ cargo test
@@ -93,7 +93,7 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 fil...
 ```
 
-One test has passed, and none have failed or been ignored. Tests are ignored if they have the `#[ignore]` attribute. To run ignored tests, manually remove the attribute, or run `cargo test -- --ignored`.
+One test has passed and none have failed or been ignored. Tests are ignored if they have the `#[ignore]` attribute. To run ignored tests, manually remove the attribute, or run `cargo test -- --ignored`.
 
 To fetch the next exercise, we must first submit our solution.
 

@@ -4,9 +4,9 @@ tags: ["exercism", "continuous deployment"]
 
 [Exercism](https://exercism.io/) is a nice little service [I talked about last month]({{ site.baseurl }}{% post_url 2018-06-01-exercism-driven-learning %}). It is great to learn new languages or improve your skills, but it isn’t perfect. I wished it had submission validations. So let's build one.
 
-I imagine a continuous deployment style workflow. A user would fetch a problem, write the solution, and commit it to GitHub. This would trigger tests, and allow to merge pull requests if the tests pass. Once merged into master, the pipeline would submit the solution. Users would then be allowed to fetch the next problem. The process would repeat until all exercises are completed.
+I imagine a continuous deployment style workflow. A user would fetch a problem, write the solution, and commit it to GitHub. This would trigger tests and allow to merge pull requests if the tests pass. Once merged into master, the pipeline would submit the solution. Users would then be allowed to fetch the next problem. The process would repeat until all exercises are completed.
 
-The first obvious challenge to tackle is Exercism’s multi-language support. Exercism supports over 30 languages. Each has its own way to build, and test their exercises.
+The first obvious challenge to tackle is Exercism’s multi-language support. Exercism supports over 30 languages. Each has its own way to build and test their exercises.
 
 Docker seems to be the perfect solution to this problem. Each language would have its own image to run the tests. For example, the following `Dockerfile` would test Rust exercises.
 
@@ -42,7 +42,7 @@ Exercism detects and stops duplicated submissions on their servers. We could sub
 git log --pretty="format:" -m --name-only -n1
 ```
 
-The above command should list all files affected by the latest commit. It works for merge commits, and squash merging. Rebase merging won’t work as it discards branch, and merge information. If you use rebase merging, you will have to find an alternative.
+The above command should list all files affected by the latest commit. It works for merge commits and squash merging. Rebase merging won’t work as it discards branch and merge information. If you use rebase merging, you will have to find an alternative.
 
 The listed file paths can be piped to extract only exercise names.
 
@@ -130,4 +130,4 @@ if [ "$(git rev-parse HEAD)" == "$(git rev-parse origin/master)" ]; then
 fi
 ```
 
-This script will allow you to keep on top of Exercism. It will test your solutions, and submit them if they are valid. Allowing you to focus on solving the exercises.
+This script will allow you to keep on top of Exercism. It will test your solutions and submit them if they are valid. Allowing you to focus on solving the exercises.

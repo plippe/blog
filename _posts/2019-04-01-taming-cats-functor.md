@@ -8,9 +8,9 @@ Computer science is great at finding off-putting vocabulary. It is able to hide 
 ## Typeclasse
 To use Cats’ Functors, it helps to understand typeclasses.
 
-In short, a typeclass is an interface. An instance is created by extending a class, or with an anonymous class created via a function. The latter allows Scala built in types, or other 3rd party types, to be compatible with the interface.
+In short, a typeclass is an interface. An instance is created by extending a class, or with an anonymous class created via a function. The latter allows Scala built-in types, or other 3rd party types, to be compatible with the interface.
 
-If you are looking to learn more about typeclasses, I wrote two posts about them. The first [compares suppertypes with typeclasses]({{ site.baseurl }}{% post_url 2019-02-01-scala-generics-and-typeclasses %}), while the second shows [how to create your own typeclass to write CSVs]({{ site.baseurl }}{% post_url 2019-03-01-scala-typeclasses %}). They shouldn’t take you more than 10 minutes to understand.
+If you are looking to learn more about typeclasses, I wrote two posts about them. The first [compares generics with typeclasses]({{ site.baseurl }}{% post_url 2019-02-01-scala-generics-and-typeclasses %}), while the second shows [how to create your own typeclass to write CSVs]({{ site.baseurl }}{% post_url 2019-03-01-scala-typeclasses %}). They shouldn’t take you more than 10 minutes to understand.
 
 ## Functor
 
@@ -38,11 +38,11 @@ implicit val catsStdInstancesForList = new Functor[List] {
 }
 ```
 
-To guaranty that all Functors behaves the same, having a map function isn’t enough. The implementations must also obey two laws.
+To guaranty that all Functors behave the same, having a map function isn’t enough. The implementations must also obey two laws.
 
 ## Laws
 ### Identity
-The first law hints at the [identity function](https://www.scala-lang.org/api/2.12.6/scala/Predef$.html#identity[A](x:A):A). This function takes an argument, and returns an identical copy. Using it in a Functor’s `map` should always result in a Functor of same value.
+The first law hints at the [identity function](https://www.scala-lang.org/api/2.12.6/scala/Predef$.html#identity[A](x:A):A). This function takes an argument and returns an identical copy. Using it in a Functor’s `map` should always result in a Functor of the same value.
 
 ```scala
 assert(Option(1).map(identity) == Option(1))
@@ -61,7 +61,7 @@ assert(Option(1).map(f).map(g) == Option(1).map(fg))
 assert(List(1, 2, 3).map(f).map(g) == List(1, 2, 3).map(fg))
 ```
 
-Cats has Functor instances defined for their own data structures, and a few Scala built in types. You can also create a new ones, but make sure they obey the laws.
+Cats has Functor instances defined for their own data structures, and a few Scala built-in types. You can also create new ones, but make sure they obey the laws.
 
 ### Example
 Typeclasses are about abstraction. Functors aren’t different. The example below uses `map` to change a data store’s response.
@@ -103,7 +103,7 @@ def getJsonUser[F[_]](
 }
 ```
 
-This removes flexibility, and requires a lot of single purpose code. A Functor can solve that problem.
+This removes flexibility and requires a lot of single-purpose code. A Functor can solve that problem.
 
 ```scala
 import cats.Functor

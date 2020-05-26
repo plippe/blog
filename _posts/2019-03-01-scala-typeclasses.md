@@ -2,11 +2,11 @@
 tags: ["scala", "typeclass"]
 ---
 
-Scala supports supertypes, and typeclasses. Those allowed me to write a generic `maxOption` function, in a [previous article]({{ site.baseurl }}{% post_url 2019-02-01-scala-generics-and-typeclasses %}). With the overview out of the way, I will show in more details how typeclasses can add real value to your project.
+Scala supports supertypes and typeclasses. Those allowed me to write a generic `maxOption` function, in a [previous article]({{ site.baseurl }}{% post_url 2019-02-01-scala-generics-and-typeclasses %}). With the overview out of the way, I will show in more detail how typeclasses can add real value to your project.
 
-I am going to code a comma separated value writer. CSV is a very common format. I am not creating anything new, nor better, but I will definitely make it interesting.
+I am going to code a comma-separated value writer. CSV is a very common format. I am not creating anything new, nor better, but I will make it interesting.
 
-In case you might not know, there is an [RFC for the CSV format](https://tools.ietf.org/html/rfc4180). As the starts highlights, this isn’t a standard, but I will follow it anyways. This give me constraints to focus on my goal instead of solving every possible scenario.
+In case you might not know, there is an [RFC for the CSV format](https://tools.ietf.org/html/rfc4180). As the start highlights, this isn’t a standard, but I will follow it anyways. This gives me constraints to focus on my goal instead of solving every possible scenario.
 
 The RFC requirements can be shrunk down to the following bullet points:
 - One record per line
@@ -51,11 +51,11 @@ def writeRows(rows: List[List[String]]): Either[String, String] = {
 }
 ```
 
-This version is quite small, and perfectly handles `String`s. The issue is that other types exists.
+This version is quite small and perfectly handles `String`s. The issue is that other types exist.
 
 I will focus on the `formatField` function. The others aren’t perfect, but limiting the formatting to `String`s is an obvious issue. The function should be able to format any argument.
 
-`Any` does offer a `toString` method. It works wonders for debugging, but I wouldn’t use it for anything else. Another option is supertypes, but built in types, like `Int`, and `List`, couldn’t extend it. The easiest solution is a typeclass.
+`Any` does offer a `toString` method. It works wonders for debugging, but I wouldn’t use it for anything else. Another option is supertypes, but built-in types, like `Int` and `List`, couldn’t extend it. The easiest solution is a typeclass.
 
 A typeclass is defined by a trait with a type argument. It can have one, or more functions to implement.
 
@@ -65,7 +65,7 @@ trait Show[A] {
 }
 ```
 
-Implementations should be written in the companion object. They are defined as `implicits` to remove the need of explicitly calling them.
+Implementations should be written in the companion object. They are defined as implicits to remove the need to explicitly call them.
 
 ```scala
 object Show {
@@ -111,7 +111,7 @@ If you dislike the use of `implicitly`, you can avoid it by using an implicit pa
 def optionToShow[A](implicit showA: Show[A]) = ???
 ```
 
-With the typeclass defined, and a few implementations too, I can go back to the example.
+With the typeclass defined and a few implementations too, I can go back to the example.
 
 As I said before, I will focus on `formatField`. It shouldn’t be limited to `String`s, but any type with a `Show` implementation.
 
@@ -126,7 +126,7 @@ def formatField[A: Show](a: A): String = {
 }
 ```
 
-This new version is a step in the right direction, but it’s still quite rough around the edges. Some simple additions can improve the use of the typeclase. A helper can hide the use of `implicitly`, and an implicit conversion can improve the syntax.
+This new version is a step in the right direction, but it’s still quite rough around the edges. Some simple additions can improve the use of the typeclass. A helper can hide the use of `implicitly`, and an implicit conversion can improve the syntax.
 
 ```scala
 object Show {

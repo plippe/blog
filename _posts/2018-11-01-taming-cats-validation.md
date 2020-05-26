@@ -7,7 +7,7 @@ tags: ["scala", "cats"]
 
 There are a few ways of informing users about errors. The simplest way is to raise a `Throwable`, but that can be dangerous. A better way is to bubble up errors.
 
-Scala has a few types to represent distinct possibilities. The most obvious one is `Option`. `Option` represent optional values, who would have guessed. They are great for binary type of processes, but lack flexibility.
+Scala has a few types to represent distinct possibilities. The most obvious one is `Option`. `Option` represent optional values, who would have guessed. They are great for binary types of processes but lack flexibility.
 
 ```scala
 def validatePhoneNumber(value: String)
@@ -26,9 +26,9 @@ val validIrishLandLinePhoneNumber: Option[String] =
     .flatMap(validatePhoneNumberCountry(_, "IE"))
 ```
 
-An empty `validIrishLandLinePhoneNumber` wouldn’t inform the user of the issue. Is the number valid? Is it a land line number? Or, is it an Irish number?
+An empty `validIrishLandLinePhoneNumber` wouldn’t inform the user of the issue. Is the number valid? Is it a landline number? Or, is it an Irish number?
 
-`Either` offers a more flexible alternative. With a `Left`, and a `Right`, it can hold an explanation for the failed process.
+`Either` offers a more flexible alternative. With a `Left` and a `Right`, it can hold an explanation for the failed process.
 
 ```scala
 sealed trait PhoneNumberValidation extends Throwable
@@ -55,16 +55,16 @@ val validIrishLandLinePhoneNumber:
       .flatMap(validatePhoneNumberCountry(_, "IE"))
 ```
 
-`Either` is like a simplified `Try`, or `Future`. It doesn’t offer any fancy error catching, nor multi threading, but offers a clear distinction between success, and failure.
+`Either` is like a simplified `Try`, or `Future`. It doesn’t offer any fancy error catching, nor multi-threading, but offers a clear distinction between success and failure.
 
-The results of the validation methods are currently composed sequentially. In other words, the validation stops at the first error, and returns it. This can create a very painful user experience. No one wants to submit a form over, and over again without knowing when the process will succeed.
+The results of the validation methods are currently composed sequentially. In other words, the validation stops at the first error and returns it. This can create a very painful user experience. No one wants to submit a form over and over again without knowing when the process will succeed.
 
 ```
 phone number isn't valid
 
 ...
 
-phone number isn't for a land line
+phone number isn't for a landline
 
 ...
 
@@ -75,7 +75,7 @@ phone number isn't for an Irish number
 (╯°□°）╯︵ ┻━┻
 ```
 
-Parallel composition allow many validations to run independently. Their errors are centralised in a type that can contain one, or more element. A simple solution is `List`, but a more precise one is [NonEmptyList]({{ site.baseurl }}{% post_url 2018-10-01-taming-cats-nonempty %}). If there is a reason to return `Left`, there should always be an error with it.
+Parallel composition allows many validations to run independently. Their errors are centralized in a type that can contain one, or more elements. A simple solution is `List`, but a more precise one is [NonEmptyList]({{ site.baseurl }}{% post_url 2018-10-01-taming-cats-nonempty %}). If there is a reason to return `Left`, there should always be an error with it.
 
 ```scala
 type ValidatedNonEmptyList[T] = Either[NonEmptyList[Throwable], T]
@@ -93,7 +93,7 @@ def validateCountry(value: String, country: String)
     Left(NonEmptyList.fromList(List(NotFromCountry))
 ```
 
-Once validated, `Either`s should be composed. The result should contain all the values in `Right`, or at least one error in `Left`.
+Once validated, `Either`s should be composed. The result should contain all the values in `Right` or at least one error in `Left`.
 
 ```scala
 def tuple3[A, B, C](
@@ -116,7 +116,7 @@ def tuple3[A, B, C](
 
 `tuple3` is a simple function with a pattern match. It has N power of two case statements, meaning that at most, `tuple22`, has 484 possibilities. Writing, or generating, all the statements isn’t a proper solution.
 
-Once again, Cats offers a better alternative. [`Validated`](https://typelevel.org/cats/datatypes/validated.html) is a trait with a `Valid`, and `Invalid` implementation. It is like `Either`. The `ValidatedNel` is a variant to handle non empty lists of errors. It also offers two types of composition, `andThen` for sequential, and `tupled` for parallel. Use that instead of building your own solution.
+Once again, Cats offers a better alternative. [`Validated`](https://typelevel.org/cats/datatypes/validated.html) is a trait with a `Valid` and `Invalid` implementation. It is like `Either`. The `ValidatedNel` is a variant to handle non-empty lists of errors. It also offers two types of composition, `andThen` for sequential and `tupled` for parallel. Use that instead of building your own solution.
 
 ```scala
 import cats._

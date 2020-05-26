@@ -92,7 +92,7 @@ object Volume {
 }
 ```
 
-Writing a conversion library isn’t hard, but why reinvent the wheel. [Squants](http://www.squants.com/), and [Libra](https://to-ithaca.github.io/libra/) offer better solutions. Furthermore, this allows me to focus on my pancakes.
+Writing a conversion library isn’t hard, but why reinvent the wheel. [Squants](http://www.squants.com/) and [Libra](https://to-ithaca.github.io/libra/) offer better solutions. Furthermore, this allows me to focus on my pancakes.
 
 ```scala
 import squants._
