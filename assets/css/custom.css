@@ -32,6 +32,10 @@ div.subtitle.tags {
   margin-bottom: 20px;
 }
 
+div.subtitle.tags a:hover {
+  border-bottom-width: 0px;
+}
+
 .is-pulled-down {
   margin-top: 80px;
 }
