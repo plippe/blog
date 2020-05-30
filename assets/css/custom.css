@@ -23,3 +23,15 @@
 .content div.highlight {
   margin-bottom: 1.5em;
 }
+
+.button.is-link {
+  text-decoration: none;
+}
+
+div.subtitle.tags {
+  margin-bottom: 20px;
+}
+
+.is-pulled-down {
+  margin-top: 80px;
+}

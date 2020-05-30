@@ -3,20 +3,29 @@ layout: default
 ---
 
 <h1 class="title">{{ page.title }}</h1>
-
-<div class="subtitle date is-6">
-  {{ page.date | date: "%B %-d, %Y" }}
+<div class="subtitle tags is-6">
+  {% for hashtag in site.hashtags %}
+    {% assign tag = hashtag.title | downcase %}
+    {% if page.tags contains tag %}
+      <a href="{{ hashtag.url | absolute_url }}">#{{tag}}</a>
+    {% endif %}
+  {% endfor %}
 </div>
 
 <div class="content">
   {{ content }}
 </div>
 
-<div class="subtitle tags is-6">
-  {% for hashtag in site.hashtags %}
-    {% assign tag = hashtag.title | downcase %}
-    {% if page.tags contains tag %}
-      <a class="subtitle is-6" href="{{ hashtag.url | absolute_url }}">#{{tag}}</a>
-    {% endif %}
-  {% endfor %}
+<div class="pagination is-pulled-down">
+  {% if page.previous.url %}
+    <span class="pagination-button">
+      <a class="button is-link" href="{{page.previous.url | absolute_url}}">&#8617;	{{page.previous.title}}</a>
+    </span>
+  {% endif %}
+
+  {% if page.next.url %}
+    <span class="pagination-button">
+      <a class="button is-link" href="{{page.next.url | absolute_url}}">{{page.next.title}} &#8618;</a>
+    </span>
+  {% endif %}
 </div>
