@@ -1,6 +1,5 @@
 ---
 title: AWS Continuous Integration
-
 tags: ["amazon web services", "aws codedeploy", "continuous integration"]
 ---
 

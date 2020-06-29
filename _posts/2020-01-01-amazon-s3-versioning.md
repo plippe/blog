@@ -1,5 +1,4 @@
 ---
-title: Amazon S3 Versioning
 tags: ["amazon web services", "amazon s3", "aws lambda"]
 ---
 

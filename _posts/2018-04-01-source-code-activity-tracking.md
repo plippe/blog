@@ -1,3 +1,6 @@
+---
+---
+
 Your source code is important. It defines everything about your application. How it runs. How it tests itself. How it gets deployed. A bad commit, at best, could take your application down, at worst, open access to your whole system. Why not monitor your repositories and avoid those issues?
 
 Following the current trend of best practices, your repository should be popular. It should receive notifications for its tests, its test coverage, its code quality, its security, its add-ons, and I could go on. Services, providing these automated checks, use webhooks.

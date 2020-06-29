@@ -1,6 +1,5 @@
 ---
 title: AWS Continuous Deployment
-
 tags: ["amazon web services", "aws codepipeline", "continuous deployment"]
 ---
 
