@@ -5,7 +5,7 @@ tags: ["scala", "play framework"]
 
 Applications that interact with databases have a few moving pieces to keep in mind. Between the connection, the setup, and the queries, there is enough to find it overwhelming. This post will cover all those pieces in a Play application.
 
-To avoid repeating myself, I will start with a working CRUD application. A simple ReST API that uses a `Map` instead of a database. It is like the [Pet Store we built]({{ site.baseurl }}{% post_url 2020-04-01-playing-with-scala-rest-api %}), but for recipes.
+To avoid repeating myself, I will start with a working CRUD application. A simple ReST API that uses a `Map` instead of a database. It is like the [Pet Store we built]({{ site.baseurl }}{% post_url 2020/2020-04-01-playing-with-scala-rest-api %}), but for recipes.
 
 If at any point you want to jump ahead, the application is available on [GitHub](https://github.com/plippe/playing-with-scala-slick). It has a few improvements, but nothing major.
 

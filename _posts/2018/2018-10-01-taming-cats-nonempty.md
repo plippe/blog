@@ -5,7 +5,7 @@ tags: ["scala", "cats"]
 
 > *Cats is a library which provides abstractions for functional programming in the [Scala programming language](https://scala-lang.org/). The name is a playful shortening of the word category.*
 
-As [I said previously]({{ site.baseurl }}{% post_url 2018-09-01-taming-cats-equality %}), Scala has a few issues and [cats](https://typelevel.org/cats/) offer some solutions. To avoid being overwhelmed, I will only be looking at NonEmpty in this post.
+As [I said previously]({{ site.baseurl }}{% post_url 2018/2018-09-01-taming-cats-equality %}), Scala has a few issues and [cats](https://typelevel.org/cats/) offer some solutions. To avoid being overwhelmed, I will only be looking at NonEmpty in this post.
 
 Scala has a wonderful collection library, but some of its methods are partial functions. The `head` method, for example, will throw an error when it is called on an empty list.
 

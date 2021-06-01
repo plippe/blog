@@ -75,7 +75,7 @@ phone number isn't for an Irish number
 (╯°□°）╯︵ ┻━┻
 ```
 
-Parallel composition allows many validations to run independently. Their errors are centralized in a type that can contain one, or more elements. A simple solution is `List`, but a more precise one is [NonEmptyList]({{ site.baseurl }}{% post_url 2018-10-01-taming-cats-nonempty %}). If there is a reason to return `Left`, there should always be an error with it.
+Parallel composition allows many validations to run independently. Their errors are centralized in a type that can contain one, or more elements. A simple solution is `List`, but a more precise one is [NonEmptyList]({{ site.baseurl }}{% post_url 2018/2018-10-01-taming-cats-nonempty %}). If there is a reason to return `Left`, there should always be an error with it.
 
 ```scala
 type ValidatedNonEmptyList[T] = Either[NonEmptyList[Throwable], T]

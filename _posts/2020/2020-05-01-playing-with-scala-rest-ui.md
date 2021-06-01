@@ -189,7 +189,7 @@ class ArticlesController @Inject()(
 }
 ```
 
-Half of those methods are very like those in the [ReSTful API post]({{ site.baseurl }}{% post_url 2020-04-01-playing-with-scala-rest-api %}).
+Half of those methods are very like those in the [ReSTful API post]({{ site.baseurl }}{% post_url 2020/2020-04-01-playing-with-scala-rest-api %}).
 
 ```scala
 // In /app/controllers/ArticlesController.scala
