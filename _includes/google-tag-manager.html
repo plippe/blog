@@ -1,11 +1,13 @@
 {% if jekyll.environment == "production" %}
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158969760-1"></script>
   <script>
+    const isDebugMode = ["", "127.0.0.1", "localhost"].includes(window.location.hostname);
+
     window.dataLayer = window.dataLayer || [];
 
     function gtag(){dataLayer.push(arguments);}
 
     gtag('js', new Date());
-    gtag('config', 'UA-158969760-1');
+    gtag('config', 'UA-158969760-1', { 'debug_mode': isDebugMode });
   </script>
 {% endif %}
