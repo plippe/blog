@@ -84,7 +84,7 @@ With a working application, let's move on to continuous integration.
 # Continuous Integration
 Rust is a safe language, but bugs can still sneak in. CI helps to catch those issues before they break anything. [GitHub Actions](https://github.com/features/actions) can easily do that.
 
-There are three simple things to check with Rust code. The first is obviously tests, the second is the format, and the third is code smells with Clippy. All those can run in parallel to speed up the process.
+There are three simple things to check in Rust code. The first is obviously tests, the second is the format, and the third is code smells with Clippy. All those can run in parallel to speed up the process.
 
 ```yaml
 # in .github/workflows/continuous_integration.yml
